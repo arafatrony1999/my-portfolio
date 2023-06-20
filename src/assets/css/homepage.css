@@ -1,0 +1,193 @@
+.homepage{
+    width: 100vw;
+}
+
+.page-title{
+    padding-top: 40px;
+    background: #F8F8F8;
+}
+.page-title div{
+    font-size: 6vw;
+    color: black;
+}
+.colored-text{
+    margin-left: 16px;
+    border-bottom: 8px solid #F06233;
+}
+.homepage-intro-container{
+    background: rgb(248, 248, 248);
+    width: 100%;
+    padding: 20px 0;
+}
+.homepage-intro{
+    width: 75%;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background: white;
+    margin: auto;
+    display: flex;
+    padding: 20px;
+}
+.intro-image{
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.homepage-intro img{
+    width: 50%;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.homepage-intro p{
+    width: 75%;
+    font-size: 18px;
+}
+.intro-carousel{
+    max-width: 100%;
+    background: rgb(248, 248, 248);
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+}
+
+.intro-btns{
+    width: 100%;
+    background: rgb(248, 248, 248);
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.my-btn{
+    border: none;
+    outline: none;
+    text-transform: uppercase;
+    padding: 8px 15px;
+    font-size: 18px;
+    letter-spacing: 5px;
+    transition: all .5s ease;
+    margin: 0 15px;
+}
+.my-btn:hover{
+    transform: scale(1.05);
+    transition: all .5s ease;
+}
+
+.black-btn{
+    background: black;
+    color: white;
+    transition: all .5s ease;
+}
+.black-btn:hover{
+    border: 1px solid black;
+    background: white;
+    color: black;
+    transition: all .5s ease;
+}
+
+.white-btn{
+    color: #F06233;
+    background: white;
+    border: #F06233 1px solid;
+    transition: all .5s ease;
+}
+.white-btn:hover{
+    border: none;
+    background: #F06233;
+    color: white;
+    transition: all .5s ease;
+}
+
+
+.slick-slide{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.big-text{
+    width: 100%;
+    font-size: 90px;
+    font-weight: bold;
+    color: #F06233;
+    position: relative;
+    height: fit-content;
+    text-transform: uppercase;
+}
+.big-text p{
+    opacity: .2;
+}
+.small-text{
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    font-size: 30px;
+    opacity: 1 !important;
+    color: black;
+    text-transform: uppercase;
+}
+.small-text .colored-span{
+    color: #F06233;
+}
+
+.small-title{
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+}
+.small-title .colored-span{
+    color: #F06233;
+}
+
+.about-section{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 75%;
+}
+.about-card{
+    width: 49%;
+    height: 150px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 20px;
+}
+.about-card span:nth-child(1){
+    font-size: 23px;
+    font-weight: bold;
+}
+.hr{
+    width: 50%;
+    border: 1px solid gray;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 20px 0;
+}
+.skills-section{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 75%;
+}
+.skill{
+    width: 23%;
+    margin: 15px 0;
+}
+.progress-bar{
+    height: 16px;
+    border: 1px solid black;
+}
+.progress-bar-inner{
+    background: black;
+    height: 100%;
+}
