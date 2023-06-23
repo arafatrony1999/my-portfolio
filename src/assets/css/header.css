@@ -8,6 +8,8 @@ a{
 }
 body{
     font-family: 'Roboto Condensed', sans-serif;
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 .front-header{
     height: 100px;

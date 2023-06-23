@@ -12,7 +12,7 @@ import ad10 from '../../assets/images/ad10.png'
 const AboutCarousel = () => {
     var settings = {
         dots: false,
-        infinite: false,
+        infinite: true,
         autoplay: true,
         speed: 2000,
         autoplaySpeed: 2000,

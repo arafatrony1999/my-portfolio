@@ -3,9 +3,9 @@ import SmallText from './SmallText'
 
 const BigText = (props) => {
     return (
-        <div className='big-text text-center'>
+        <div className={props.txtColor === 'white' ? 'big-text text-center text-light' : 'big-text text-center'}>
             <p>{props.big}</p>
-            <SmallText normal={props.normal} colored={props.colored} />
+            <SmallText txtColor={props.txtColor} normal={props.normal} colored={props.colored} />
         </div>
     )
 }

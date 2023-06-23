@@ -9,6 +9,10 @@ import AboutSection from '../../components/frontend/AboutSection'
 import Hr from '../../components/frontend/Hr'
 import SmallTitle from '../../components/frontend/SmallTitle'
 import SkillsSection from '../../components/frontend/SkillsSection'
+import Experience from '../../components/frontend/Experience'
+import ServicesSection from '../../components/frontend/ServicesSection'
+import PortfolioSection from '../../components/frontend/PortfolioSection'
+import PricingSection from '../../components/frontend/PricingSection'
 
 const HomePage = () => {
     return (
@@ -25,6 +29,10 @@ const HomePage = () => {
             <SkillsSection />
             <Hr />
             <SmallTitle normal='Experience &' colored='Education' />
+            <Experience />
+            <ServicesSection />
+            <PortfolioSection />
+            <PricingSection />
         </div>
     )
 }
