@@ -13,6 +13,10 @@ import Experience from '../../components/frontend/Experience'
 import ServicesSection from '../../components/frontend/ServicesSection'
 import PortfolioSection from '../../components/frontend/PortfolioSection'
 import PricingSection from '../../components/frontend/PricingSection'
+import TestimonialSection from '../../components/frontend/TestimonialSection'
+import BlogsSection from '../../components/frontend/BlogsSection'
+import SubscriberSection from '../../components/frontend/SubscriberSection'
+import ContactSection from '../../components/frontend/ContactSection'
 
 const HomePage = () => {
     return (
@@ -33,6 +37,10 @@ const HomePage = () => {
             <ServicesSection />
             <PortfolioSection />
             <PricingSection />
+            <TestimonialSection />
+            <BlogsSection />
+            <SubscriberSection />
+            <ContactSection />
         </div>
     )
 }

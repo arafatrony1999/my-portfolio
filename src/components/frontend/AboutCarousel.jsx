@@ -18,13 +18,13 @@ const AboutCarousel = () => {
         autoplaySpeed: 2000,
         slidesToShow: 4,
         slidesToScroll: 1,
-        initialSlide: 0,
+        initialSlide: 4,
         responsive: [
         {
             breakpoint: 1024,
             settings: {
                 slidesToShow: 3,
-                slidesToScroll: 3,
+                slidesToScroll: 1,
                 infinite: true,
                 dots: true
             }
@@ -33,14 +33,14 @@ const AboutCarousel = () => {
             breakpoint: 600,
             settings: {
                 slidesToShow: 2,
-                slidesToScroll: 2,
+                slidesToScroll: 1,
                 initialSlide: 2
             }
         },
         {
             breakpoint: 480,
             settings: {
-                slidesToShow: 1,
+                slidesToShow: 2,
                 slidesToScroll: 1
             }
         }
@@ -48,7 +48,7 @@ const AboutCarousel = () => {
     };
     
     return (
-        <div className="about-carousel w-100 overflow-hidden py-2">
+        <div style={{height: '100px'}} className="about-carousel w-100 overflow-hidden py-2">
             <Slider {...settings}>
                 <div>
                     <img src={ad1} alt="" />

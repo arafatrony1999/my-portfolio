@@ -1,12 +1,19 @@
 import { BsSearch } from "react-icons/bs";
 import logo from '../../assets/images/logo.png'
+import formal from '../../assets/images/formal.jpg'
 import { Link } from 'react-router-dom'
+import { FaBars } from "react-icons/fa";
 
 const Header = () => {
     return (
         <>
             <div className='front-header'>
-                <img className='img-fluid' src={logo} alt="" />
+                <img className="img-fluid py-3 rounded-circle responsive-logo" src={formal} alt="" />
+                <img className='img-fluid main-logo' src={logo} alt="" />
+
+                <div className="menu-bar-icon">
+                    <FaBars />
+                </div>
 
                 <div className="header-links">
                     <ul>
