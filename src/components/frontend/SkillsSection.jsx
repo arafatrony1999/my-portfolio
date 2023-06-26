@@ -38,9 +38,9 @@ const SkillsSection = () => {
     return (
         <div className='container skills-section py-5'>
             {
-                skills.map((skill) => {
+                skills.map((skill, index) => {
                     return(
-                        <div className="skill">
+                        <div className="skill" key={index}>
                             <div className="skill-title w-100 d-flex justify-content-between">
                                 <span>{skill.name}</span>
                                 <span>{skill.percent}%</span>

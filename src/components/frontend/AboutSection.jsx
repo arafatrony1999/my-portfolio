@@ -7,9 +7,18 @@ const AboutSection = () => {
                 <span>5+</span>
                 <span>Years of Experience</span>
             </div>
-            <div className="about-card my-2"></div>
-            <div className="about-card my-2"></div>
-            <div className="about-card my-2"></div>
+            <div className="about-card my-2">
+                <span>5+</span>
+                <span>Years of Experience</span>
+            </div>
+            <div className="about-card my-2">
+                <span>5+</span>
+                <span>Years of Experience</span>
+            </div>
+            <div className="about-card my-2">
+                <span>5+</span>
+                <span>Years of Experience</span>
+            </div>
         </div>
     )
 }

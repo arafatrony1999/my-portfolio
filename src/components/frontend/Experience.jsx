@@ -58,24 +58,6 @@ const Experience = () => {
                         <p>Custom PHP, Codeigniter, HTML, CSS, Javascript Web Developer & Designer Certificate</p>
                     </div>
                 </div>
-                <div className="col-12 col-md-6 d-flex my-2">
-                    <div className="experience-left">
-                        <BsFillBriefcaseFill />
-                    </div>
-                    <div className="experience-right">
-                        <h3>MEGA IT SOLUTIONS</h3>
-                        <p>Custom PHP, Codeigniter, HTML, CSS, Javascript Web Developer & Designer Certificate</p>
-                    </div>
-                </div>
-                <div className="col-12 col-md-6 d-flex my-2">
-                    <div className="experience-left">
-                        <BsFillBriefcaseFill />
-                    </div>
-                    <div className="experience-right">
-                        <h3>MEGA IT SOLUTIONS</h3>
-                        <p>Custom PHP, Codeigniter, HTML, CSS, Javascript Web Developer & Designer Certificate</p>
-                    </div>
-                </div>
             </div>
         </div>
     )
