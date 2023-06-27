@@ -225,10 +225,11 @@
     background: black;
     height: 100%;
 }
-.experience-left{
+.experience-left div{
     position: relative;
-    height: 40px;
-    width: 40px;
+    display: flex;
+    height: 40px !important;
+    width: 40px !important;
     border-radius: 50%;
     background: black;
     color: white;
@@ -341,6 +342,7 @@
     height: 45px;
     width: 75%;
     padding-left: 15px;
+    border: 1px solid gray;
 }
 .subscribe-form button{
     height: 45px;
@@ -527,14 +529,8 @@
     .skill{
         width: 48%;
     }
-    
-    .experience-left{
-        position: relative;
-        height: 40px;
-        width: 40px;
-        border-radius: 50%;
-        background: black;
-        color: white;
+    .experience-right{
+        padding: 0 5px 0 10px;
     }
     
     .service-card{
@@ -570,8 +566,12 @@
     .contact-left{
         width: 100%;
     }
+    .contact-left .d-flex{
+        text-align: center;
+        display: block !important;
+    }
     .contact-details{
-        padding-left: 20px;
+        padding: 15px 0;
     }
     .contact-right{
         width: 100%;

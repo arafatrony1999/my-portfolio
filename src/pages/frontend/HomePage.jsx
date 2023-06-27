@@ -1,4 +1,5 @@
 import React from 'react'
+import pdf from '../../assets/pdf/arafat.pdf'
 import PageTitle from '../../components/frontend/PageTitle'
 import HomepageIntro from '../../components/frontend/HomepageIntro'
 import IntroCarousel from '../../components/frontend/IntroCarousel'
@@ -28,6 +29,10 @@ const HomePage = () => {
             <AboutCarousel />
             <BigText big='ABOUT' normal='ABOUT' colored='ME' />
             <AboutSection />
+            <Hr />
+            <div className="w-100 d-flex justify-content-center">
+                <a href={pdf} className="d-inline-block my-btn colored-btn my-5 mx-auto">download resume</a>
+            </div>
             <Hr />
             <SmallTitle normal='MY' colored='SKILLS' />
             <SkillsSection />

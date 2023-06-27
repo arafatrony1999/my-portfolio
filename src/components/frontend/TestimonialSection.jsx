@@ -37,10 +37,10 @@ const TestimonialSection = () => {
             <div className="container skills-section my-5">
                 <div className="w-100 overflow-visible position-relative">
                     <div className="testimonial-buttons">
-                        <button onClick={()=>gotoNext()}>
+                        <button onClick={() => gotoPrev()}>
                             <BsArrowLeftShort />
                         </button>
-                        <button onClick={()=>gotoPrev()}>
+                        <button onClick={() => gotoNext()}>
                             <BsArrowRightShort />
                         </button>
                     </div>
