@@ -1,4 +1,5 @@
 import './assets/css/header.css'
+import './assets/css/admin.css'
 import Header from './Header'
 import { Outlet } from 'react-router-dom'
 import Sidebar from './Sidebar'

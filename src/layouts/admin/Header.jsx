@@ -17,6 +17,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import Button from '@mui/material/Button';
 import { BsChevronDown } from "react-icons/bs";
+import profile from '../../assets/images/formal.jpg'
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -219,7 +220,7 @@ export default function PrimarySearchAppBar() {
                                     onClick={handleClick}
                                 >
                                     <div className="profile-img">
-                                        {/* <img src={profile} alt="" /> */}
+                                        <img src={profile} alt="" />
                                     </div>
                                     <div className="profile-arrow">
                                         <BsChevronDown />
