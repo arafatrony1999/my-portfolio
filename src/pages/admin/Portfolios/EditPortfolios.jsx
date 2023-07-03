@@ -4,16 +4,25 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { usePortfolioContext } from '../../../context/PortfolioContext';
 import { useSearchParams } from 'react-router-dom';
+import Select from 'react-select'
+import { useCategoryContext } from '../../../context/CategoryContext';
+import { toast } from 'react-toastify';
 
 const EditPortfolios = () => {
     const [id, setId] = useSearchParams()
+
     const { getPortfolios } = usePortfolioContext();
+    const { categories } = useCategoryContext();
 
     const [name, setName] = useState('')
     const [link, setLink] = useState('')
     const [category, setCategory] = useState('')
     const [image, setImage] = useState('')
     const [description, setDescription] = useState('')
+
+    const setSelectedCategory = (item) => {
+        setCategory(item)
+    }
 
     useEffect(() => {
         setId(id)
@@ -22,7 +31,7 @@ const EditPortfolios = () => {
         .then((res) => {
             setName(res.data.name)
             setLink(res.data.link)
-            setCategory(res.data.category)
+            setCategory(res.data.categories)
             setImage(res.data.image)
             setDescription(res.data.description)
         })
@@ -39,16 +48,35 @@ const EditPortfolios = () => {
         formData.append('id', id.get('id'))
         formData.append('name', name)
         formData.append('link', link)
-        formData.append('category', category)
+        formData.append('category', JSON.stringify(category))
         formData.append('image', image)
         formData.append('description', description)
 
         axios.post('/editPortfolios', formData)
         .then((res) => {
             if(res.data.status === 1){
+                toast.success('Project updated successfully!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
                 getPortfolios()
-            }else{
-
+            }else if(res.data.exist === 1){
+                toast.warn('Same project already exist!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
             }
         })
         .catch((error) => {
@@ -72,7 +100,18 @@ const EditPortfolios = () => {
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Enter Project Category</Form.Label>
-                    <Form.Control defaultValue={category} onChange={ (e) => setCategory(e.target.value)} type="text" placeholder="Enter Project Category" />
+                    <Select
+                        value={category}
+                        onChange={setSelectedCategory}
+                        options={categories}
+                        getOptionLabel={(options) => options.name}
+                        getOptionValue={(options) => options.id}
+                        isSearchable
+                        isClearable
+                        noOptionsMessage={() => 'No category found'}
+                        placeholder='Select Categories...'
+                        required
+                    />
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Select Project Display Image</Form.Label>

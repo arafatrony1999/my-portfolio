@@ -10,12 +10,18 @@ import DashBoard from '../pages/admin/DashBoard';
 
 
 import MasterLayoutAdmin from '../layouts/admin/MasterLayout'
+
 import Portfolios from '../pages/admin/Portfolios/Portfolios';
 import AddPortfolios from '../pages/admin/Portfolios/AddPortfolios';
 import EditPortfolios from '../pages/admin/Portfolios/EditPortfolios';
+
 import Categories from '../pages/admin/Categories/Categories';
 import AddCategories from '../pages/admin/Categories/AddCategories';
 import EditCategories from '../pages/admin/Categories/EditCategories';
+
+import Skills from '../pages/admin/Skills/Skills';
+import AddSkills from '../pages/admin/Skills/AddSkills';
+import EditSkills from '../pages/admin/Skills/EditSkills';
 
 const Index = () => {
     return (
@@ -39,6 +45,10 @@ const Index = () => {
                         <Route path='categories' element={<Categories />} />
                         <Route path='categories/add' element={<AddCategories />} />
                         <Route path='categories/edit' element={<EditCategories />} />
+                        
+                        <Route path='skills' element={<Skills />} />
+                        <Route path='skills/add' element={<AddSkills />} />
+                        <Route path='skills/edit' element={<EditSkills />} />
                     </Route>
                 </Routes>
             </BrowserRouter>
