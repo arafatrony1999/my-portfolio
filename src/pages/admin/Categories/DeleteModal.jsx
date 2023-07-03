@@ -12,7 +12,7 @@ const DeleteModal = (props) => {
         setBtnText('Loading...')
         setLoading(true)
 
-        axios.get(`/deletePortfolio?id=${id}`)
+        axios.get(`/deleteCategory?id=${id}`)
         .then((res) => {
             if(res.data === 1){
                 onDeleteSuccess()
@@ -37,11 +37,14 @@ const DeleteModal = (props) => {
             >
                 <Modal.Header>
                     <Modal.Title id="contained-modal-title-vcenter">
-                        Delete Project
+                        Delete Category
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <p>Are you sure you want to delete this project?</p>
+                    <p>Are you sure you want to delete this category?</p>
+                    <p>
+                        <strong>Projects under this category will also be deleted!</strong>
+                    </p>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button onClick={onHide}>Close</Button>

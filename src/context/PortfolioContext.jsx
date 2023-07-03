@@ -18,12 +18,15 @@ const PortfolioProvider = ( {children} ) => {
         dispatch({type: 'SET_INITIAL_STATUS'})
         axios.get('/getPortfolios')
         .then((res) => {
-            console.log(res.data)
             dispatch({type: 'API_DATA', payload: res.data})
         })
         .catch((error) => {
 
         })
+    }
+
+    const setFilteredPortfolios = (search) => {
+        dispatch({type: 'SET_FILTERED_PORTFOLIOS', payload: {search: search, portfolios: state.portfolios}})
     }
 
     useEffect(() => {
@@ -32,7 +35,7 @@ const PortfolioProvider = ( {children} ) => {
     
 
     return(
-        <PortfolioContext.Provider value={{...state, getPortfolios}}>
+        <PortfolioContext.Provider value={{...state, getPortfolios, setFilteredPortfolios}}>
             { children }
         </PortfolioContext.Provider>
     )

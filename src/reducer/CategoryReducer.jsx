@@ -1,10 +1,10 @@
-const PortFolioReducer = (state, action) => {
+const CategoryReducer = (state, action) => {
     if(action.type === 'SET_INITIAL_STATUS'){
         return{
             ...state,
             loading: true,
-            portfolios: [],
-            filteredPortfolios: [],
+            categories: [],
+            filteredCategories: [],
         }
     }
 
@@ -12,26 +12,26 @@ const PortFolioReducer = (state, action) => {
         return{
             ...state,
             loading: false,
-            portfolios: action.payload,
-            filteredPortfolios: action.payload,
+            categories: action.payload,
+            filteredCategories: action.payload,
         }
     }
 
-    if(action.type === 'SET_FILTERED_PORTFOLIOS'){
-        const { search, portfolios } = action.payload;
+    if(action.type === 'SET_FILTERED_CATEGORIES'){
+        const { search, categories } = action.payload;
         
-        let result = portfolios.filter(single_data => {
+        let result = categories.filter(single_data => {
             return single_data.name.toLowerCase().match(search.toLowerCase())
         });
 
         return{
             ...state,
             loading: false,
-            filteredPortfolios: result
+            filteredCategories: result,
         }
     }
 
     return state;
 }
 
-export default PortFolioReducer
+export default CategoryReducer

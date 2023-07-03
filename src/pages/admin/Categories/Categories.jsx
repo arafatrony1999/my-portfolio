@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component'
 import { Link } from 'react-router-dom'
-import { usePortfolioContext } from '../../../context/PortfolioContext'
 import DeleteModal from './DeleteModal'
+import { useCategoryContext } from '../../../context/CategoryContext'
+import { toast } from 'react-toastify'
 
-const Portfolios = () => {
-    const { loading, filteredPortfolios, getPortfolios, setFilteredPortfolios } = usePortfolioContext();
+const Categories = () => {
+    const { loading, filteredCategories, getCategories, setFilteredCategories } = useCategoryContext();
 
     const [deleteModalShow, setDeleteModalShow] = useState(false);
 
@@ -18,12 +19,23 @@ const Portfolios = () => {
     }
     
     const onDeleteSuccess = () => {
-        getPortfolios()
+        getCategories()
         setDeleteModalShow(false)
+
+        toast.success('Category deleted successfully!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+        });
     }
 
     useEffect(() => {
-        setFilteredPortfolios(search)
+        setFilteredCategories(search)
         //eslint-disable-next-line
     }, [search])
     
@@ -36,20 +48,6 @@ const Portfolios = () => {
             name: 'Name',
             selector: row => row.name,
             sortable: true
-        },
-        {
-            name: 'Link',
-            selector: row => <a href={row.link} target='_blank' rel='noreferrer'>{row.link}</a>,
-            sortable: true
-        },
-        {
-            name: 'Category',
-            selector: row => row.categories.name,
-            sortable: true
-        },
-        {
-            name: 'Description',
-            selector: row => <div dangerouslySetInnerHTML={{__html: row.description}} />
         },
         {
             name: 'Action',
@@ -66,10 +64,10 @@ const Portfolios = () => {
             <div className='page-container'>
                 <DataTable
                     columns={columns}
-                    data={filteredPortfolios}
+                    data={filteredCategories}
                     pagination
                     progressPending={loading && 'Loading...'}
-                    title='Portfolios'
+                    title='Categories'
                     fixedHeader
                     fixedHeaderScrollHeight='50%'
                     selectableRows
@@ -80,7 +78,7 @@ const Portfolios = () => {
                         <input type='search' value={search} onChange={(e) => setSearch(e.target.value)} placeholder='Search' className='w-25 form-group' />
                     }
                     actions={
-                        <Link to='add' className='btn btn-primary'>ADD NEW LINK</Link>
+                        <Link to='add' className='btn btn-primary'>ADD NEW CATEGORY</Link>
                     }
                 />
             </div>
@@ -96,4 +94,4 @@ const Portfolios = () => {
     )
 }
 
-export default Portfolios
+export default Categories

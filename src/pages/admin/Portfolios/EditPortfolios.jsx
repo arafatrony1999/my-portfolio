@@ -1,8 +1,93 @@
-import React from 'react'
+import axios from '../../../helper/Axios';
+import { useEffect, useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import { usePortfolioContext } from '../../../context/PortfolioContext';
+import { useSearchParams } from 'react-router-dom';
 
 const EditPortfolios = () => {
+    const [id, setId] = useSearchParams()
+    const { getPortfolios } = usePortfolioContext();
+
+    const [name, setName] = useState('')
+    const [link, setLink] = useState('')
+    const [category, setCategory] = useState('')
+    const [image, setImage] = useState('')
+    const [description, setDescription] = useState('')
+
+    useEffect(() => {
+        setId(id)
+
+        axios.get(`/getEditPortfolio?id=${id.get('id')}`)
+        .then((res) => {
+            setName(res.data.name)
+            setLink(res.data.link)
+            setCategory(res.data.category)
+            setImage(res.data.image)
+            setDescription(res.data.description)
+        })
+        .catch((error) => {
+
+        })
+    }, [id, setId])
+
+    const onSubmit = (e) => {
+        e.preventDefault()
+
+        const formData = new FormData()
+
+        formData.append('id', id.get('id'))
+        formData.append('name', name)
+        formData.append('link', link)
+        formData.append('category', category)
+        formData.append('image', image)
+        formData.append('description', description)
+
+        axios.post('/editPortfolios', formData)
+        .then((res) => {
+            if(res.data.status === 1){
+                getPortfolios()
+            }else{
+
+            }
+        })
+        .catch((error) => {
+
+        })
+    }
     return (
-        <div>EditPortfolios</div>
+        <div className='page-container'>
+            <div className="p-3 box-shadow">
+                Edit Portfolio
+            </div>
+
+            <Form className='my-5' onSubmit={onSubmit}>
+                <Form.Group className="mb-3">
+                    <Form.Label>Enter Project Name</Form.Label>
+                    <Form.Control defaultValue={name} onChange={ (e) => setName(e.target.value)} type="text" placeholder="Enter Project Name" />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label>Enter Project Link</Form.Label>
+                    <Form.Control defaultValue={link} onChange={ (e) => setLink(e.target.value)} type="text" placeholder="Enter Project Link" />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label>Enter Project Category</Form.Label>
+                    <Form.Control defaultValue={category} onChange={ (e) => setCategory(e.target.value)} type="text" placeholder="Enter Project Category" />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label>Select Project Display Image</Form.Label>
+                    <Form.Control onChange={ (e) => setImage(e.target.files[0])} type="file" />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label>Description</Form.Label>
+                    <Form.Control defaultValue={description} onChange={ (e) => setDescription(e.target.value)} as="textarea" rows={3} placeholder='Enter Project Description...' />
+                </Form.Group>
+
+                <Button variant="primary" type="submit">
+                    Submit
+                </Button>
+            </Form>
+        </div>
     )
 }
 
