@@ -1,40 +1,8 @@
 import React from 'react'
+import { useSkillContext } from '../../context/SkillContext'
 
 const SkillsSection = () => {
-    const skills = [
-        {
-            name: 'HTML',
-            percent: 95,
-        },
-        {
-            name: 'CSS',
-            percent: 90,
-        },
-        {
-            name: 'Javascript',
-            percent: 75,
-        },
-        {
-            name: 'jQuery',
-            percent: 70,
-        },
-        {
-            name: 'Bootstrap',
-            percent: 90,
-        },
-        {
-            name: 'ReactJS',
-            percent: 75,
-        },
-        {
-            name: 'PHP',
-            percent: 90,
-        },
-        {
-            name: 'Laravel',
-            percent: 75,
-        }
-    ]
+    const { skills } = useSkillContext()
     return (
         <div className='container skills-section py-5'>
             {
