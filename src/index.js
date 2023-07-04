@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import { PortfolioProvider } from './context/PortfolioContext';
 import { CategoryProvider } from './context/CategoryContext';
 import { SkillProvider } from './context/SkillContext';
+import { BlogProvider } from './context/BlogContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -13,7 +14,9 @@ root.render(
     <CategoryProvider>
       <PortfolioProvider>
         <SkillProvider>
-          <App />
+          <BlogProvider>
+            <App />
+          </BlogProvider>
         </SkillProvider>
       </PortfolioProvider>
     </CategoryProvider>

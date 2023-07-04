@@ -23,6 +23,10 @@ import Skills from '../pages/admin/Skills/Skills';
 import AddSkills from '../pages/admin/Skills/AddSkills';
 import EditSkills from '../pages/admin/Skills/EditSkills';
 
+import Blogs from '../pages/admin/Blogs/Blogs';
+import AddBlogs from '../pages/admin/Blogs/AddBlogs';
+import EditBlogs from '../pages/admin/Blogs/EditBlogs';
+
 const Index = () => {
     return (
         <>
@@ -49,6 +53,10 @@ const Index = () => {
                         <Route path='skills' element={<Skills />} />
                         <Route path='skills/add' element={<AddSkills />} />
                         <Route path='skills/edit' element={<EditSkills />} />
+
+                        <Route path='blogs' element={<Blogs />} />
+                        <Route path='blogs/add' element={<AddBlogs />} />
+                        <Route path='blogs/edit' element={<EditBlogs />} />
                     </Route>
                 </Routes>
             </BrowserRouter>
