@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import DeleteModal from './DeleteModal'
 import { useCategoryContext } from '../../../context/CategoryContext'
 import { toast } from 'react-toastify'
+import { FaEdit, FaTrash } from "react-icons/fa";
 
 const Categories = () => {
     const { loading, filteredCategories, getCategories, setFilteredCategories } = useCategoryContext();
@@ -52,8 +53,12 @@ const Categories = () => {
         {
             name: 'Action',
             cell: row => <>
-                <Link to={'edit?id='+row.id} className='btn btn-primary'>Edit</Link>
-                <button onClick={() => deleteModal(row.id)} className='btn btn-danger mx-2'>Delete</button>
+                <Link to={'edit?id='+row.id} className='btn btn-primary'>
+                    <FaEdit />
+                </Link>
+                <button onClick={() => deleteModal(row.id)} className='btn btn-danger mx-2'>
+                    <FaTrash />
+                </button>
             </>
         }
     ]

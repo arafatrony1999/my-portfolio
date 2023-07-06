@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import { FaAddressCard, FaUser } from "react-icons/fa";
+import { FaAssistiveListeningSystems, FaCode, FaDesktop, FaPencilAlt, FaThList, FaUser } from "react-icons/fa";
 import { MDBAccordion, MDBAccordionItem } from 'mdb-react-ui-kit';
 
 const SIDEBAR = () => {
@@ -25,7 +25,7 @@ const SIDEBAR = () => {
                         headerTitle={
                             <>
                                 <div className='sidebar-icon'>
-                                    <FaAddressCard />
+                                    <FaDesktop />
                                 </div>
                                 <div className='sidebar-name'>Portfolios</div>
                             </>
@@ -45,7 +45,7 @@ const SIDEBAR = () => {
                         <MDBAccordionItem collapseId={2} headerTitle={
                             <>
                                 <div className='sidebar-icon'>
-                                    <FaAddressCard />
+                                    <FaThList />
                                 </div>
                                 <div className='sidebar-name'>Categories</div>
                             </>
@@ -65,7 +65,7 @@ const SIDEBAR = () => {
                         <MDBAccordionItem collapseId={3} headerTitle={
                             <>
                                 <div className='sidebar-icon'>
-                                    <FaAddressCard />
+                                    <FaCode />
                                 </div>
                                 <div className='sidebar-name'>Skills</div>
                             </>
@@ -85,7 +85,7 @@ const SIDEBAR = () => {
                         <MDBAccordionItem collapseId={4} headerTitle={
                             <>
                                 <div className='sidebar-icon'>
-                                    <FaAddressCard />
+                                    <FaPencilAlt />
                                 </div>
                                 <div className='sidebar-name'>Blogs</div>
                             </>
@@ -105,7 +105,7 @@ const SIDEBAR = () => {
                         <MDBAccordionItem collapseId={5} headerTitle={
                             <>
                                 <div className='sidebar-icon'>
-                                    <FaAddressCard />
+                                    <FaAssistiveListeningSystems />
                                 </div>
                                 <div className='sidebar-name'>Testimonials</div>
                             </>

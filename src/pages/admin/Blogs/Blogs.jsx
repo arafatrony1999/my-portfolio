@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import DeleteModal from './DeleteModal'
 import { toast } from 'react-toastify'
 import { useBlogContext } from '../../../context/BlogContext'
+import { FaEdit, FaTrash } from "react-icons/fa";
 
 const Blogs = () => {
     const { loading, filteredBlogs, getBlogs, setFilteredBlogs } = useBlogContext();
@@ -65,8 +66,12 @@ const Blogs = () => {
         {
             name: 'Action',
             cell: row => <>
-                <Link to={'edit?id='+row.id} className='btn btn-primary'>Edit</Link>
-                <button onClick={() => deleteModal(row.id)} className='btn btn-danger mx-2'>Delete</button>
+                <Link to={'edit?id='+row.id} className='btn btn-primary'>
+                    <FaEdit />
+                </Link>
+                <button onClick={() => deleteModal(row.id)} className='btn btn-danger mx-2'>
+                    <FaTrash />
+                </button>
             </>
         }
     ]

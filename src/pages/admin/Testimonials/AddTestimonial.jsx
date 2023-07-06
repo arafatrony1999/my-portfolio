@@ -105,11 +105,11 @@ const AddTestimonial = () => {
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Start Date</Form.Label>
-                    <Form.Control value={start} onChange={ (e) => setStart(e.target.value)} type="date" placeholder="Select work start date" />
+                    <Form.Control value={start} onChange={ (e) => setStart(e.target.value)} type="text" placeholder="Work start date (e.g 08 July, 1999)" />
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>End Date</Form.Label>
-                    <Form.Control value={end} onChange={ (e) => setEnd(e.target.value)} type="date" placeholder="Select work end date" />
+                    <Form.Control value={end} onChange={ (e) => setEnd(e.target.value)} type="date" placeholder="Work end date (e.g 06 October, 1999)" />
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Meta Description</Form.Label>

@@ -3,6 +3,7 @@ import DataTable from 'react-data-table-component'
 import { Link } from 'react-router-dom'
 import { usePortfolioContext } from '../../../context/PortfolioContext'
 import DeleteModal from './DeleteModal'
+import { FaEdit, FaTrash } from "react-icons/fa";
 
 const Portfolios = () => {
     const { loading, filteredPortfolios, getPortfolios, setFilteredPortfolios } = usePortfolioContext();
@@ -54,8 +55,12 @@ const Portfolios = () => {
         {
             name: 'Action',
             cell: row => <>
-                <Link to={'edit?id='+row.id} className='btn btn-primary'>Edit</Link>
-                <button onClick={() => deleteModal(row.id)} className='btn btn-danger mx-2'>Delete</button>
+                <Link to={'edit?id='+row.id} className='btn btn-primary'>
+                    <FaEdit />
+                </Link>
+                <button onClick={() => deleteModal(row.id)} className='btn btn-danger mx-2'>
+                    <FaTrash />
+                </button>
             </>
         }
     ]
