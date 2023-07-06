@@ -102,6 +102,26 @@ const SIDEBAR = () => {
                                 </div>
                             </div>
                         </MDBAccordionItem>
+                        <MDBAccordionItem collapseId={5} headerTitle={
+                            <>
+                                <div className='sidebar-icon'>
+                                    <FaAddressCard />
+                                </div>
+                                <div className='sidebar-name'>Testimonials</div>
+                            </>
+                        }>
+                            <div className="btn-toggle-items">
+                                <div className="btn-toggle-left"></div>
+                                <div className="btn-toggle-right">
+                                    <NavLink to='testimonials'>
+                                        <div className='sidebar-name'>All Testimonials</div>
+                                    </NavLink>
+                                    <NavLink to='testimonials/add'>
+                                        <div className='sidebar-name'>Add Testimonials</div>
+                                    </NavLink>
+                                </div>
+                            </div>
+                        </MDBAccordionItem>
                     </MDBAccordion>
                 </li>
             </ul>
