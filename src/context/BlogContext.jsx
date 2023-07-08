@@ -8,6 +8,7 @@ const initialState = {
     loading: false,
     blogs: [],
     filteredBlogs: [],
+    singleBlog: {},
 }
 
 const BlogProvider = ( {children} ) => {
@@ -24,6 +25,17 @@ const BlogProvider = ( {children} ) => {
         })
     }
 
+    const setSingleBlog = async (slug) => {
+        await axios.get(`/blog?slug=${slug.slug}`)
+        .then((res) => {
+            console.log(res.data)
+            dispatch({type: 'SET_SINGLE_BLOG', payload: res.data})
+        })
+        .catch((error) => {
+
+        })
+    }
+
     const setFilteredBlogs = (search) => {
         dispatch({type: 'SET_FILTERED_Blogs', payload: {search: search, blogs: state.blogs}})
     }
@@ -34,7 +46,7 @@ const BlogProvider = ( {children} ) => {
 
 
     return(
-        <BlogContext.Provider value={{...state, getBlogs, setFilteredBlogs}}>
+        <BlogContext.Provider value={{...state, getBlogs, setFilteredBlogs, setSingleBlog}}>
             {children}
         </BlogContext.Provider>
     )

@@ -448,6 +448,15 @@
     top: 50%;
     transform: translate(-50%, -50%);
 }
+.hire-me-add{
+    background: #F8F8F8;
+    padding: 20px 0;
+    border: 1px solid rgb(180, 178, 178);
+}
+.hire-me-add img{
+    height: 100px;
+    width: 100px;
+}
 
 
 @media (max-width: 991px){

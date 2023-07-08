@@ -30,6 +30,7 @@ import EditBlogs from '../pages/admin/Blogs/EditBlogs';
 import Testimonials from '../pages/admin/Testimonials/Testimonials';
 import AddTestimonials from '../pages/admin/Testimonials/AddTestimonial';
 import EditTestimonials from '../pages/admin/Testimonials/EditTestimonial';
+import BlogPage from '../pages/frontend/BlogPage';
 
 const Index = () => {
     return (
@@ -40,6 +41,7 @@ const Index = () => {
                 <Routes>
                     <Route path='/' element={<MasterLayoutFrontEnd />} >
                         <Route index element={<HomePageFrontEnd />} />
+                        <Route path='/blog/:slug' element={<BlogPage />} />
                     </Route>
 
 

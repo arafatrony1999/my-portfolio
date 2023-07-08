@@ -31,6 +31,13 @@ const BlogReducer = (state, action) => {
         }
     }
 
+    if(action.type === 'SET_SINGLE_BLOG'){
+        return{
+            ...state,
+            singleBlog: action.payload[0]
+        }
+    }
+
     return state;
 }
 
