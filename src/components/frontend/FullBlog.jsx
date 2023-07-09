@@ -1,8 +1,8 @@
 import React from 'react'
 import blog1 from '../../assets/images/blog1.webp'
 import formal from '../../assets/images/formal.jpg'
-import { FaCode, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
-import { BsEnvelope, BsTwitter, BsWhatsapp } from "react-icons/bs";
+import { FaFacebookF, FaLinkedinIn, FaCalendarAlt } from "react-icons/fa";
+import { BsEnvelope, BsTwitter, BsWhatsapp, BsBarChartFill } from "react-icons/bs";
 import { Link } from 'react-router-dom'
 
 const FullBlog = () => {
@@ -17,7 +17,7 @@ const FullBlog = () => {
                     <span className='px-3'>Arafat Rony</span>
                 </div>
                 <div className="blog-date">
-                    <FaCode />
+                    <FaCalendarAlt />
                     <span className='px-3'>July 08, 2023</span>
                 </div>
             </div>
@@ -34,8 +34,8 @@ const FullBlog = () => {
                 </div>
             </div>
 
-            <div className="blog-count">
-                <BsEnvelope />
+            <div className="blog-count d-flex align-items-center py-2">
+                <BsBarChartFill />
                 <span>650</span>
             </div>
 

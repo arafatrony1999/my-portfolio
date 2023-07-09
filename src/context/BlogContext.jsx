@@ -8,7 +8,8 @@ const initialState = {
     loading: false,
     blogs: [],
     filteredBlogs: [],
-    singleBlog: {},
+    singleBlog: null,
+    commentReplyId: '',
 }
 
 const BlogProvider = ( {children} ) => {
@@ -26,14 +27,55 @@ const BlogProvider = ( {children} ) => {
     }
 
     const setSingleBlog = async (slug) => {
-        await axios.get(`/blog?slug=${slug.slug}`)
+        await axios.get(`/blog?slug=${slug}`)
         .then((res) => {
-            console.log(res.data)
             dispatch({type: 'SET_SINGLE_BLOG', payload: res.data})
         })
         .catch((error) => {
 
         })
+    }
+
+    const addComment = (blog, name, email, comment) => {
+        const formData = new FormData()
+
+        formData.append('id', blog.id)
+        formData.append('name', name)
+        formData.append('email', email)
+        formData.append('comment', comment)
+
+        axios.post('/addComment', formData)
+        .then((res) => {
+            if(res.data === 1){
+                setSingleBlog(blog.slug)
+            }
+        })
+        .catch((error) => {
+
+        })
+    }
+
+    const addReply = (comment, name, email, reply, slug) => {
+        const formData = new FormData()
+
+        formData.append('id', comment.id)
+        formData.append('name', name)
+        formData.append('email', email)
+        formData.append('reply', reply)
+
+        axios.post('/addReply', formData)
+        .then((res) => {
+            if(res.data === 1){
+                setSingleBlog(slug)
+            }
+        })
+        .catch((error) => {
+
+        })
+    }
+
+    const setCommentReplyId = (id) => {
+        dispatch({type: 'SET_COMMENT_REPLY_ID', payload: id})
     }
 
     const setFilteredBlogs = (search) => {
@@ -46,7 +88,7 @@ const BlogProvider = ( {children} ) => {
 
 
     return(
-        <BlogContext.Provider value={{...state, getBlogs, setFilteredBlogs, setSingleBlog}}>
+        <BlogContext.Provider value={{...state, getBlogs, setFilteredBlogs, setSingleBlog, addComment, addReply, setCommentReplyId}}>
             {children}
         </BlogContext.Provider>
     )

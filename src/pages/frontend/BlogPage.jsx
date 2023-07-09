@@ -13,12 +13,13 @@ import { useBlogContext } from '../../context/BlogContext'
 
 const BlogPage = () => {
 
-    const { setSingleBlog } = useBlogContext()
+    const { setSingleBlog, singleBlog } = useBlogContext()
 
-    const slug = useParams()
+    const { slug } = useParams()
 
     useEffect(() => {
         setSingleBlog(slug)
+        //eslint-disable-next-line
     }, [slug])
 
 
@@ -32,7 +33,7 @@ const BlogPage = () => {
                         <FullBlog />
                         <Share />
                         <BlogArrow />
-                        <BlogComments />
+                        { singleBlog && <BlogComments />}
                     </div>
                     <div className="col-12 col-md-4">
                         <BlogRight />

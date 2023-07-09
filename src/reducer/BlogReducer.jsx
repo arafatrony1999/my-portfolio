@@ -38,6 +38,13 @@ const BlogReducer = (state, action) => {
         }
     }
 
+    if(action.type === 'SET_COMMENT_REPLY_ID'){
+        return{
+            ...state,
+            commentReplyId: action.payload,
+        }
+    }
+
     return state;
 }
 
