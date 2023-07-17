@@ -10,6 +10,7 @@ const AddCategories = () => {
 
     const [name, setName] = useState('')
     const [image, setImage] = useState('')
+    const [type, setType] = useState('')
 
     const onSubmit = (e) => {
         e.preventDefault()
@@ -18,6 +19,7 @@ const AddCategories = () => {
 
         formData.append('name', name)
         formData.append('image', image)
+        formData.append('type', type)
 
         axios.post('/addCategories', formData)
         .then((res) => {
@@ -60,7 +62,14 @@ const AddCategories = () => {
                     <Form.Label>Select Category Display Image</Form.Label>
                     <Form.Control onChange={ (e) => setImage(e.target.files[0])} type="file" />
                 </Form.Group>
-
+                <Form.Group className="mb-3">
+                    <Form.Label>Select Category type</Form.Label>
+                    <Form.Select defaultValue={type} onChange={ (e) => setType(e.target.value)} aria-label="Default select example">
+                        <option>Select Category Type</option>
+                        <option value="website">Website</option>
+                        <option value="blog">Blog</option>
+                    </Form.Select>
+                </Form.Group>
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>

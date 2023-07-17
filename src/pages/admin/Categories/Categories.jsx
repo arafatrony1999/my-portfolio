@@ -51,6 +51,10 @@ const Categories = () => {
             sortable: true
         },
         {
+            name: 'Type',
+            selector: row => row.type,
+        },
+        {
             name: 'Action',
             cell: row => <>
                 <Link to={'edit?id='+row.id} className='btn btn-primary'>
