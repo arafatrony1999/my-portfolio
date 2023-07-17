@@ -12,8 +12,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <CategoryProvider>
-      <PortfolioProvider>
+    <PortfolioProvider>
+      <CategoryProvider>
         <SkillProvider>
           <BlogProvider>
             <TestimonialProvider>
@@ -21,8 +21,8 @@ root.render(
             </TestimonialProvider>
           </BlogProvider>
         </SkillProvider>
-      </PortfolioProvider>
-    </CategoryProvider>
+      </CategoryProvider>
+    </PortfolioProvider>
   </React.StrictMode>
 );
 

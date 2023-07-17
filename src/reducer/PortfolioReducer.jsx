@@ -9,11 +9,17 @@ const PortFolioReducer = (state, action) => {
     }
 
     if(action.type === 'API_DATA'){
+        let a = action.payload.filter((value, index, self) =>
+            index === self.findIndex((t) => (
+                t.name === value.name
+            ))
+        )
         return{
             ...state,
             loading: false,
             portfolios: action.payload,
             filteredPortfolios: action.payload,
+            all_portfolios: a
         }
     }
 

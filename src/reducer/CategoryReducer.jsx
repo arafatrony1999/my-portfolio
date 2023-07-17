@@ -5,6 +5,7 @@ const CategoryReducer = (state, action) => {
             loading: true,
             categories: [],
             filteredCategories: [],
+            single_category: [],
         }
     }
 
@@ -14,6 +15,7 @@ const CategoryReducer = (state, action) => {
             loading: false,
             categories: action.payload,
             filteredCategories: action.payload,
+            single_category: [],
         }
     }
 
@@ -28,6 +30,27 @@ const CategoryReducer = (state, action) => {
             ...state,
             loading: false,
             filteredCategories: result,
+            single_category: [],
+        }
+    }
+
+    if(action.type === 'SET_FILTERED_CATEGORY'){
+        const { id, categories } = action.payload;
+
+        let category = categories.filter((cat) => {
+            return cat.id === id
+        });
+
+        return{
+            ...state,
+            single_category: category,
+        }
+    }
+
+    if(action.type === 'SET_FILTERED_ALL_CATEGORY'){
+        return{
+            ...state,
+            single_category: []
         }
     }
 

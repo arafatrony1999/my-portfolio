@@ -7,7 +7,8 @@ const PortfolioContext = createContext();
 const initialState = {
     loading: false,
     portfolios: [],
-    filteredPortfolios: []
+    filteredPortfolios: [],
+    all_portfolios: [],
 }
 
 

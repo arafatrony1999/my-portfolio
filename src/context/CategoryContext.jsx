@@ -8,6 +8,7 @@ const initialState = {
     loading: false,
     categories: [],
     filteredCategories: [],
+    single_category: [],
 }
 
 const CategoryProvider = ( {children} ) => {
@@ -28,13 +29,21 @@ const CategoryProvider = ( {children} ) => {
         dispatch({type: 'SET_FILTERED_CATEGORIES', payload: {search: search, categories: state.categories}})
     }
 
+    const setFilteredCategory = (id) => {
+        if(id === 0){
+            dispatch({type: 'SET_FILTERED_ALL_CATEGORY' })
+        }else{
+            dispatch({type: 'SET_FILTERED_CATEGORY', payload: { id: id, categories: state.categories }})
+        }
+    }
+
     useEffect(() => {
         getCategories()
     }, [])
 
 
     return(
-        <CategoryContext.Provider value={{...state, getCategories, setFilteredCategories}}>
+        <CategoryContext.Provider value={{...state, getCategories, setFilteredCategories, setFilteredCategory}}>
             {children}
         </CategoryContext.Provider>
     )
