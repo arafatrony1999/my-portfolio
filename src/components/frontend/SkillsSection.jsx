@@ -20,6 +20,9 @@ const SkillsSection = () => {
                     )
                 })
             }
+            <div className="skill"></div>
+            <div className="skill"></div>
+            <div className="skill"></div>
         </div>
     )
 }

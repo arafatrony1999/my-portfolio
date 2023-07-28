@@ -31,6 +31,7 @@ import Testimonials from '../pages/admin/Testimonials/Testimonials';
 import AddTestimonials from '../pages/admin/Testimonials/AddTestimonial';
 import EditTestimonials from '../pages/admin/Testimonials/EditTestimonial';
 import BlogPage from '../pages/frontend/BlogPage';
+import Contacts from '../pages/admin/Contacts/Contacts';
 
 const Index = () => {
     return (
@@ -67,6 +68,8 @@ const Index = () => {
                         <Route path='testimonials' element={<Testimonials />} />
                         <Route path='testimonials/add' element={<AddTestimonials />} />
                         <Route path='testimonials/edit' element={<EditTestimonials />} />
+
+                        <Route path='contacts' element={<Contacts />} />
                     </Route>
                 </Routes>
             </BrowserRouter>

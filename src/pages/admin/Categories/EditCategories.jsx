@@ -12,6 +12,7 @@ const EditCategories = () => {
 
     const [name, setName] = useState('')
     const [image, setImage] = useState('')
+    const [type, setType] = useState('')
 
     useEffect(() => {
         setId(id)
@@ -20,6 +21,7 @@ const EditCategories = () => {
         .then((res) => {
             setName(res.data.name)
             setImage(res.data.image)
+            setType(res.data.type)
         })
         .catch((error) => {
 
@@ -34,6 +36,7 @@ const EditCategories = () => {
         formData.append('id', id.get('id'))
         formData.append('name', name)
         formData.append('image', image)
+        formData.append('type', type)
 
         axios.post('/editCategories', formData)
         .then((res) => {
@@ -72,6 +75,14 @@ const EditCategories = () => {
                 <Form.Group className="mb-3">
                     <Form.Label>Select Project Display Image</Form.Label>
                     <Form.Control onChange={ (e) => setImage(e.target.files[0])} type="file" />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label>Select Category type</Form.Label>
+                    <Form.Select value={type} onChange={ (e) => setType(e.target.value)} aria-label="Default select example">
+                        <option>Select Category Type</option>
+                        <option value="website">Website</option>
+                        <option value="blog">Blog</option>
+                    </Form.Select>
                 </Form.Group>
 
                 <Button variant="primary" type="submit">

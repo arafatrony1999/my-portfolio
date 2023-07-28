@@ -18,6 +18,7 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import Button from '@mui/material/Button';
 import { BsChevronDown } from "react-icons/bs";
 import profile from '../../assets/images/formal.jpg'
+import { useContactContext } from '../../context/ContactContext';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -62,6 +63,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function PrimarySearchAppBar() {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+
+    const { unseen } = useContactContext()
 
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -142,7 +145,7 @@ export default function PrimarySearchAppBar() {
                     aria-label="show 17 new notifications"
                     color="inherit"
                 >
-                    <Badge badgeContent={17} color="error">
+                    <Badge badgeContent={unseen} color="error">
                         <NotificationsIcon />
                     </Badge>
                 </IconButton>
@@ -205,7 +208,7 @@ export default function PrimarySearchAppBar() {
                             aria-label="show 17 new notifications"
                             color="inherit"
                         >
-                            <Badge badgeContent={17} color="error">
+                            <Badge badgeContent={unseen} color="error">
                                 <NotificationsIcon />
                             </Badge>
                         </IconButton>

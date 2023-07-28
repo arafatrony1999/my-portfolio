@@ -75,7 +75,11 @@ const BlogProvider = ( {children} ) => {
     }
 
     const setCommentReplyId = (id) => {
-        dispatch({type: 'SET_COMMENT_REPLY_ID', payload: id})
+        if(state.commentReplyId === id){
+            dispatch({type: 'UNSET_COMMENT_REPLY_ID'})
+        }else{
+            dispatch({type: 'SET_COMMENT_REPLY_ID', payload: id})
+        }
     }
 
     const setFilteredBlogs = (search) => {

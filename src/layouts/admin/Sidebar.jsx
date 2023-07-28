@@ -1,8 +1,11 @@
 import { NavLink } from 'react-router-dom'
 import { FaAssistiveListeningSystems, FaCode, FaDesktop, FaPencilAlt, FaThList, FaUser } from "react-icons/fa";
 import { MDBAccordion, MDBAccordionItem } from 'mdb-react-ui-kit';
+import { useContactContext } from '../../context/ContactContext';
 
 const SIDEBAR = () => {
+    const { unseen } = useContactContext()
+
     return (
         <div className='side-bar'>
             <div className="side-menu-title">Menu</div>
@@ -123,6 +126,19 @@ const SIDEBAR = () => {
                             </div>
                         </MDBAccordionItem>
                     </MDBAccordion>
+                    
+                    <NavLink to='contacts'>
+                        <div className='sidebar-icon'>
+                            <FaAssistiveListeningSystems />
+                        </div>
+                        <div className='sidebar-name'>Contacts</div>
+                        {
+                            unseen !== 0 &&
+                            <div className="px-2 py-1 rounded-circle" style={{marginLeft: 'auto', marginRight: '10px', background: 'red'}}>
+                                {unseen}
+                            </div>
+                        }
+                    </NavLink>
                 </li>
             </ul>
         </div>

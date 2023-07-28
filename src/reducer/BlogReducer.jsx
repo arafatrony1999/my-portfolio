@@ -45,6 +45,13 @@ const BlogReducer = (state, action) => {
         }
     }
 
+    if(action.type === 'UNSET_COMMENT_REPLY_ID'){
+        return{
+            ...state,
+            commentReplyId: '',
+        }
+    }
+
     return state;
 }
 

@@ -1,8 +1,48 @@
-import React from 'react'
+import React, { useState } from 'react'
 import BigText from './BigText'
 import { FaMapMarkerAlt, FaRegEnvelope, FaPhoneAlt } from "react-icons/fa";
+import axios from '../../helper/Axios';
+import { toast } from 'react-toastify';
 
 const ContactSection = () => {
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [phone, setPhone] = useState('')
+    const [message, setMessage] = useState('')
+    
+    const onSubmit = (e) => {
+        e.preventDefault()
+
+        const formData = new FormData()
+        formData.append('name', name)
+        formData.append('email', email)
+        formData.append('phone', phone)
+        formData.append('message', message)
+
+        axios.post('/addContact', formData)
+        .then((res) => {
+            if(res.data === 1){
+                toast.success('Your message has been recorded. Will notify you soon!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+
+                setName('')
+                setEmail('')
+                setPhone('')
+                setMessage('')
+            }
+        })
+        .catch((error) => {
+            alert('Something went wrong!')
+        })
+    }
     return (
         <div className='pricing-section'>
             <BigText big='CONTACT' normal='GET A FREE' colored='CONSULTANT' />
@@ -33,11 +73,14 @@ const ContactSection = () => {
                 </div>
 
                 <div className="contact-right">
-                    <form action="" className="w-100">
-                        <input type="text" placeholder='Enter Your Name...' />
-                        <input type="text" placeholder='Enter Your Email...' />
-                        <textarea name="" id="" cols="30" rows="10" placeholder='Write Your Message...'></textarea>
-                        <button className="my-btn white-btn m-0 my-3">SEND MESSAGE</button>
+                    <form onSubmit={onSubmit} className="w-100">
+                        <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder='Enter Your Name...' />
+                        <input value={email} onChange={(e) => setEmail(e.target.value)} type="text" placeholder='Enter Your Email...' />
+                        <input value={phone} onChange={(e) => setPhone(e.target.value)} type="text" placeholder='Enter Your Phone Number...' />
+                        <textarea value={message} onChange={(e) => setMessage(e.target.value)} name="" id="" cols="30" rows="10" placeholder='Write Your Message...'>
+                            {message}
+                        </textarea>
+                        <button type='submit' className="my-btn white-btn m-0 my-3">SEND MESSAGE</button>
                     </form>
                 </div>
             </div>

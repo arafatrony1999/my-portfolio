@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import ReplyComment from './ReplyComment'
 import { useBlogContext } from '../../context/BlogContext';
 import { BsArrowReturnRight } from "react-icons/bs";
+import DateFormat from '../../helper/DateFormat';
 
 const BlogComments = () => {
     const { addComment, singleBlog, setCommentReplyId, commentReplyId } = useBlogContext()
@@ -34,7 +35,9 @@ const BlogComments = () => {
                                                 <h4 className='px-3'>{comment.name}</h4>
                                             </div>
                                         </div>
-                                        <p>{comment.created_at}</p>
+                                        <p>
+                                            <DateFormat date={comment.created_at} />
+                                        </p>
                                     </div>
 
                                     <p className='py-3'>{comment.comment}</p>
@@ -60,7 +63,9 @@ const BlogComments = () => {
                                                                         <h4 className='px-3'>{reply.name}</h4>
                                                                     </div>
                                                                 </div>
-                                                                <p>{reply.created_at}</p>
+                                                                <p>
+                                                                    <DateFormat date={reply.created_at} />
+                                                                </p>
                                                             </div>
                                                             <p className='py-3'>{reply.replies}</p>
                                                         </div>

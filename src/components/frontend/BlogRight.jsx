@@ -31,7 +31,7 @@ const BlogRight = () => {
                     blogs.map((blog) => {
                         return(
                             <li key={blog.id} className=' list-unstyled py-2'>
-                                <Link to='/'>{blog.title}</Link>
+                                <Link to={`/blog/${blog.slug}`}>{blog.title}</Link>
                             </li>
                         )
                     })

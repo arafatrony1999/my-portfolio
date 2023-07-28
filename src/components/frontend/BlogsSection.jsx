@@ -3,14 +3,10 @@ import OnlyWhiteBtn from './OnlyWhiteBtn'
 import BigText from './BigText'
 import { useBlogContext } from '../../context/BlogContext'
 import { Link } from 'react-router-dom'
+import DateFormat from '../../helper/DateFormat'
 
 const BlogsSection = () => {
     const { blogs } = useBlogContext()
-
-    const date = (input) => {
-        var a = new Date(input)
-        return(a)
-    }
 
     return (
         <div className='services-section py-4'>
@@ -36,26 +32,12 @@ const BlogsSection = () => {
                                             {blog.meta_description.slice(0, 100)}...
                                         </p>
 
-                                        <p>{date(blog.created_at).toUTCString()}</p>
+                                        <p><DateFormat date={blog.created_at} /></p>
                                     </div>
                                 </div>
                             )
                         })
                     }
-                    {/* <div className="blogs-card">
-                        <div className="blog-image">
-                            <img className='img-fluid' src={blog3} alt="" />
-                        </div>
-                        <div className="p-3 pb-0">
-                            <div className="blog-title">
-                                <h5>Success Story</h5>
-                            </div>
-
-                            <p className='py-3'>Starting from the end of my degree. It was a turning point...</p>
-
-                            <p>December 25, 2022</p>
-                        </div>
-                    </div> */}
                 </div>
                 <div className="text-center w-100">
                     <OnlyWhiteBtn />
