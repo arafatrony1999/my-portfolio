@@ -30,13 +30,20 @@ import EditBlogs from '../pages/admin/Blogs/EditBlogs';
 import Testimonials from '../pages/admin/Testimonials/Testimonials';
 import AddTestimonials from '../pages/admin/Testimonials/AddTestimonial';
 import EditTestimonials from '../pages/admin/Testimonials/EditTestimonial';
-import BlogPage from '../pages/frontend/BlogPage';
+
 import Contacts from '../pages/admin/Contacts/Contacts';
+
+import BlogPage from '../pages/frontend/BlogPage';
 import BlogsPage from '../pages/frontend/BlogsPage';
 import ProjectsPage from '../pages/frontend/ProjectsPage';
+
 import Pricing from '../pages/admin/Pricing/Pricing';
 import AddPricing from '../pages/admin/Pricing/AddPricing';
 import EditPricing from '../pages/admin/Pricing/EditPricing';
+
+import Experience from '../pages/admin/Experience/Experience';
+import AddExperience from '../pages/admin/Experience/AddExperience';
+import EditExperience from '../pages/admin/Experience/EditExperience';
 
 const Index = () => {
     return (
@@ -81,6 +88,10 @@ const Index = () => {
                         <Route path='pricing' element={<Pricing />} />
                         <Route path='pricing/add' element={<AddPricing />} />
                         <Route path='pricing/edit' element={<EditPricing />} />
+
+                        <Route path='experience' element={<Experience />} />
+                        <Route path='experience/add' element={<AddExperience />} />
+                        <Route path='experience/edit' element={<EditExperience />} />
 
                         <Route path='contacts' element={<Contacts />} />
                     </Route>

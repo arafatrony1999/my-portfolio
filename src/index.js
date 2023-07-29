@@ -9,6 +9,7 @@ import { BlogProvider } from './context/BlogContext';
 import { TestimonialProvider } from './context/TestimonialContext';
 import { ContactProvider } from './context/ContactContext';
 import { PricingProvider } from './context/PricingContext';
+import { ExperienceProvider } from './context/ExperienceContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -21,7 +22,9 @@ root.render(
             <TestimonialProvider>
               <ContactProvider>
                 <PricingProvider>
-                  <App />
+                  <ExperienceProvider>
+                    <App />
+                  </ExperienceProvider>
                 </PricingProvider>
               </ContactProvider>
             </TestimonialProvider>

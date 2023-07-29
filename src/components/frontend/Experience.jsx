@@ -1,9 +1,43 @@
 import { FaBriefcase, FaGraduationCap } from "react-icons/fa";
+import { useExperienceContext } from '../../context/ExperienceContext'
+import DateFormat from '../../helper/DateFormat'
 
 const Experience = () => {
+    const { experience } = useExperienceContext()
     return (
         <div className='container skills-section py-5'>
             <div className="d-flex justify-content-between flex-wrap w-100">
+                {
+                    experience.map((experience) => {
+                        return(
+                            <div className="col-12 col-md-6 d-flex my-2">
+                                <div className="experience-left">
+                                    {
+                                        experience.type === 'job' ?
+                                        <>
+                                            <div>
+                                                <FaBriefcase />
+                                            </div>
+                                        </> :
+                                        <>
+                                            <div style={{background: '#F06233'}}>
+                                                <FaGraduationCap />
+                                            </div>
+                                        </>
+                                    }
+                                </div>
+                                <div className="experience-right">
+                                    <h5>
+                                        <a href='http://' target="_blank" rel="noopener noreferrer">{experience.company}</a>
+                                    </h5>
+                                    <p>
+                                        {experience.description} (<DateFormat date={experience.start} /> - {experience.end ? <DateFormat date={experience.end} /> : 'Running...'})
+                                    </p>
+                                </div>
+                            </div>
+                        )
+                    })
+                }
                 <div className="col-12 col-md-6 d-flex my-2">
                     <div className="experience-left">
                         <div>
