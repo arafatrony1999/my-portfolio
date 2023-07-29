@@ -4,16 +4,16 @@ const AboutSection = () => {
     return (
         <div className='about-section container'>
             <div className="about-card my-2">
-                <span>5+</span>
+                <span>2+</span>
                 <span>Years of Experience</span>
             </div>
             <div className="about-card my-2">
                 <span>5+</span>
-                <span>Years of Experience</span>
+                <span>Total Projects</span>
             </div>
             <div className="about-card my-2">
-                <span>5+</span>
-                <span>Years of Experience</span>
+                <span>3+</span>
+                <span>Happy Clients</span>
             </div>
             <div className="about-card my-2">
                 <span>5+</span>

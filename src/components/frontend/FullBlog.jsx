@@ -39,7 +39,7 @@ const FullBlog = (props) => {
     
                 <div className="blog-count d-flex align-items-center py-2">
                     <BsBarChartFill />
-                    <span>650</span>
+                    <span>{props.blog.views}</span>
                 </div>
     
                 <div className='full-blog'>

@@ -39,8 +39,8 @@ const BlogsSection = () => {
                         })
                     }
                 </div>
-                <div className="text-center w-100">
-                    <OnlyWhiteBtn />
+                <div className="text-center w-100 py-5">
+                    <OnlyWhiteBtn btnText="View all blogs" btnLink='/blogs' />
                 </div>
             </div>
         </div>

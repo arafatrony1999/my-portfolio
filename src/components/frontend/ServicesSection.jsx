@@ -34,8 +34,8 @@ const ServicesSection = () => {
                         </div>
                     </div>
                 </div>
-                <div className="text-center w-100">
-                    <OnlyWhiteBtn />
+                <div className="text-center w-100 py-5">
+                    <OnlyWhiteBtn btnText='Get a service' btnLink='/get_service' />
                 </div>
             </div>
         </div>

@@ -56,7 +56,7 @@ const PortfolioSection = () => {
                 </div>
 
                 <div className="text-center my-5 w-100">
-                    <ColoredBtn btnLink='/pricing' btnText='GO TO ALL'  />
+                    <ColoredBtn btnLink='/projects' btnText='GO TO ALL'  />
                 </div>
             </div>
         </>

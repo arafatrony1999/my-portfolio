@@ -45,6 +45,7 @@ const SIDEBAR = () => {
                                 </div>
                             </div>
                         </MDBAccordionItem>
+
                         <MDBAccordionItem collapseId={2} headerTitle={
                             <>
                                 <div className='sidebar-icon'>
@@ -65,6 +66,7 @@ const SIDEBAR = () => {
                                 </div>
                             </div>
                         </MDBAccordionItem>
+
                         <MDBAccordionItem collapseId={3} headerTitle={
                             <>
                                 <div className='sidebar-icon'>
@@ -85,6 +87,7 @@ const SIDEBAR = () => {
                                 </div>
                             </div>
                         </MDBAccordionItem>
+
                         <MDBAccordionItem collapseId={4} headerTitle={
                             <>
                                 <div className='sidebar-icon'>
@@ -105,6 +108,7 @@ const SIDEBAR = () => {
                                 </div>
                             </div>
                         </MDBAccordionItem>
+
                         <MDBAccordionItem collapseId={5} headerTitle={
                             <>
                                 <div className='sidebar-icon'>
@@ -125,8 +129,34 @@ const SIDEBAR = () => {
                                 </div>
                             </div>
                         </MDBAccordionItem>
+                        
+                        <MDBAccordionItem collapseId={6} headerTitle={
+                            <>
+                                <div className='sidebar-icon'>
+                                    <FaAssistiveListeningSystems />
+                                </div>
+                                <div className='sidebar-name'>Pricing</div>
+                            </>
+                        }>
+                            <div className="btn-toggle-items">
+                                <div className="btn-toggle-left"></div>
+                                <div className="btn-toggle-right">
+                                    <NavLink to='pricing'>
+                                        <div className='sidebar-name'>All Pricing list</div>
+                                    </NavLink>
+                                    <NavLink to='pricing/add'>
+                                        <div className='sidebar-name'>Add Pricing</div>
+                                    </NavLink>
+                                </div>
+                            </div>
+                        </MDBAccordionItem>
                     </MDBAccordion>
-                    
+                </li>
+            </ul>
+            
+            <div className="side-menu-title">Notifications</div>
+            <ul>
+                <li>
                     <NavLink to='contacts'>
                         <div className='sidebar-icon'>
                             <FaAssistiveListeningSystems />
@@ -134,7 +164,7 @@ const SIDEBAR = () => {
                         <div className='sidebar-name'>Contacts</div>
                         {
                             unseen !== 0 &&
-                            <div className="px-2 py-1 rounded-circle" style={{marginLeft: 'auto', marginRight: '10px', background: 'red'}}>
+                            <div className="contact-badge" style={{marginLeft: 'auto', marginRight: '10px', background: 'red'}}>
                                 {unseen}
                             </div>
                         }

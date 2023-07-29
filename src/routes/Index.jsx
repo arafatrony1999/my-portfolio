@@ -32,6 +32,11 @@ import AddTestimonials from '../pages/admin/Testimonials/AddTestimonial';
 import EditTestimonials from '../pages/admin/Testimonials/EditTestimonial';
 import BlogPage from '../pages/frontend/BlogPage';
 import Contacts from '../pages/admin/Contacts/Contacts';
+import BlogsPage from '../pages/frontend/BlogsPage';
+import ProjectsPage from '../pages/frontend/ProjectsPage';
+import Pricing from '../pages/admin/Pricing/Pricing';
+import AddPricing from '../pages/admin/Pricing/AddPricing';
+import EditPricing from '../pages/admin/Pricing/EditPricing';
 
 const Index = () => {
     return (
@@ -42,7 +47,11 @@ const Index = () => {
                 <Routes>
                     <Route path='/' element={<MasterLayoutFrontEnd />} >
                         <Route index element={<HomePageFrontEnd />} />
+
+                        <Route path='/blogs' element={<BlogsPage />} />
                         <Route path='/blog/:slug' element={<BlogPage />} />
+
+                        <Route path='/projects' element={<ProjectsPage />} />
                     </Route>
 
 
@@ -68,6 +77,10 @@ const Index = () => {
                         <Route path='testimonials' element={<Testimonials />} />
                         <Route path='testimonials/add' element={<AddTestimonials />} />
                         <Route path='testimonials/edit' element={<EditTestimonials />} />
+                        
+                        <Route path='pricing' element={<Pricing />} />
+                        <Route path='pricing/add' element={<AddPricing />} />
+                        <Route path='pricing/edit' element={<EditPricing />} />
 
                         <Route path='contacts' element={<Contacts />} />
                     </Route>

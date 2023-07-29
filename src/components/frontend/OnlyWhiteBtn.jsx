@@ -1,10 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const OnlyWhiteBtn = () => {
+const OnlyWhiteBtn = (props) => {
     return (
-        <button className='my-btn only-white-btn my-5'>
-            GET A SERVICE
-        </button>
+        <Link to={props.btnLink} className='my-btn only-white-btn my-5'>
+            {props.btnText}
+        </Link>
     )
 }
 

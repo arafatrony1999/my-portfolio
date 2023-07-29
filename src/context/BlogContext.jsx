@@ -29,7 +29,9 @@ const BlogProvider = ( {children} ) => {
     const setSingleBlog = async (slug) => {
         await axios.get(`/blog?slug=${slug}`)
         .then((res) => {
-            dispatch({type: 'SET_SINGLE_BLOG', payload: res.data})
+            if(res.data !== 0){
+                dispatch({type: 'SET_SINGLE_BLOG', payload: res.data})
+            }
         })
         .catch((error) => {
 
