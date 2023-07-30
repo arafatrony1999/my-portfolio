@@ -7,12 +7,16 @@ import { useCategoryContext } from '../../../context/CategoryContext';
 import Select from 'react-select'
 import { toast } from 'react-toastify'
 
+import Editor from 'ckeditor5-custom-build/build/ckeditor';
+import { CKEditor } from '@ckeditor/ckeditor5-react'
+
 const AddPortfolios = () => {
     const { getPortfolios } = usePortfolioContext();
     const { categories } = useCategoryContext()
 
     const [name, setName] = useState('')
     const [link, setLink] = useState('')
+    const [github, setGithub] = useState('')
     const [category, setCategory] = useState([])
     const [image, setImage] = useState('')
     const [description, setDescription] = useState('')
@@ -28,6 +32,7 @@ const AddPortfolios = () => {
 
         formData.append('name', name)
         formData.append('link', link)
+        formData.append('github', github)
         formData.append('category', JSON.stringify(category))
         formData.append('image', image)
         formData.append('description', description)
@@ -64,6 +69,39 @@ const AddPortfolios = () => {
         })
     }
 
+    const editorConfiguration = {
+        toolbar: {
+            items: [
+                'undo',
+                'redo',
+                'heading',
+                '|',
+                'bold',
+                'italic',
+                'fontColor',
+                'fontFamily',
+                'fontSize',
+                'blockQuote',
+                'link',
+                'BulletedList',
+                'NumberedList',
+                '|',
+                'outdent',
+                'indent',
+                '|',
+                'mediaEmbed',
+                '|',
+                'code',
+                'codeBlock',
+                '|',
+                'RemoveFormat',
+                'Subscript',
+                'Superscript',
+                'InsertTable',
+                'findAndReplace',
+            ]
+        },
+    };
 
     return (
         <div className='page-container'>
@@ -79,6 +117,10 @@ const AddPortfolios = () => {
                 <Form.Group className="mb-3">
                     <Form.Label>Enter Project Link</Form.Label>
                     <Form.Control onChange={ (e) => setLink(e.target.value) } type="text" placeholder="Enter Project Link" />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label>Enter Github Link</Form.Label>
+                    <Form.Control defaultValue={github} onChange={ (e) => setGithub(e.target.value)} type="text" placeholder="Enter Github Link" />
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Enter Project Category</Form.Label>
@@ -102,7 +144,15 @@ const AddPortfolios = () => {
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Description</Form.Label>
-                    <Form.Control onChange={ (e) => setDescription(e.target.value)} as="textarea" rows={3} placeholder='Enter Project Description...' />
+                    <CKEditor
+                        editor={ Editor }
+                        config={ editorConfiguration }
+                        data=""
+                        onChange={ ( event, editor ) => {
+                            const data = editor.getData();
+                            setDescription(data)
+                        }}
+                    />
                 </Form.Group>
 
                 <Button variant="primary" type="submit">

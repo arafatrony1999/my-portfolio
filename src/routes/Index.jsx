@@ -35,7 +35,6 @@ import Contacts from '../pages/admin/Contacts/Contacts';
 
 import BlogPage from '../pages/frontend/BlogPage';
 import BlogsPage from '../pages/frontend/BlogsPage';
-import ProjectsPage from '../pages/frontend/ProjectsPage';
 
 import Pricing from '../pages/admin/Pricing/Pricing';
 import AddPricing from '../pages/admin/Pricing/AddPricing';
@@ -46,6 +45,8 @@ import AddExperience from '../pages/admin/Experience/AddExperience';
 import EditExperience from '../pages/admin/Experience/EditExperience';
 import GetServicePage from '../pages/frontend/GetServicePage';
 import Services from '../pages/admin/Services/Services';
+import ProjectsPage from '../pages/frontend/ProjectsPage';
+import ProjectPage from '../pages/frontend/ProjectPage';
 
 const Index = () => {
     return (
@@ -61,7 +62,7 @@ const Index = () => {
                         <Route path='/blog/:slug' element={<BlogPage />} />
 
                         <Route path='/get_service' element={<GetServicePage />} />
-
+                        <Route path='/project' element={<ProjectPage />} />
                         <Route path='/projects' element={<ProjectsPage />} />
                     </Route>
 

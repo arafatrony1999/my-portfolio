@@ -9,6 +9,7 @@ const initialState = {
     categories: [],
     filteredCategories: [],
     single_category: [],
+    single_category_blog: [],
 }
 
 const CategoryProvider = ( {children} ) => {
@@ -37,13 +38,21 @@ const CategoryProvider = ( {children} ) => {
         }
     }
 
+    const setFilteredCategoryBlog = (id) => {
+        if(id === 0){
+            dispatch({type: 'SET_FILTERED_ALL_CATEGORY_BLOG' })
+        }else{
+            dispatch({type: 'SET_FILTERED_CATEGORY_BLOG', payload: { id: id, categories: state.categories }})
+        }
+    }
+
     useEffect(() => {
         getCategories()
     }, [])
 
 
     return(
-        <CategoryContext.Provider value={{...state, getCategories, setFilteredCategories, setFilteredCategory}}>
+        <CategoryContext.Provider value={{...state, getCategories, setFilteredCategories, setFilteredCategory, setFilteredCategoryBlog}}>
             {children}
         </CategoryContext.Provider>
     )

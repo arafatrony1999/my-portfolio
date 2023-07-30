@@ -37,6 +37,13 @@ const PortFolioReducer = (state, action) => {
         }
     }
 
+    if(action.type === 'SET_SINGLE_PORTFOLIO'){
+        return{
+            ...state,
+            singlePortfolio: action.payload[0]
+        }
+    }
+
     return state;
 }
 

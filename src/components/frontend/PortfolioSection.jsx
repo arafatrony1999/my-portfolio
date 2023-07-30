@@ -3,6 +3,7 @@ import BigText from './BigText'
 import ColoredBtn from './ColoredBtn'
 import { useCategoryContext } from '../../context/CategoryContext'
 import { usePortfolioContext } from '../../context/PortfolioContext'
+import { Link } from 'react-router-dom'
 
 const PortfolioSection = () => {
     const { categories, setFilteredCategory, single_category } = useCategoryContext()
@@ -33,18 +34,18 @@ const PortfolioSection = () => {
                             return(
                                 <div className="service-card" key={index}>
                                     <img className='img-fluid' src={portfolio.image} alt="" />
-                                    <a href='/' className="service-details portfolio-details">
+                                    <Link to={`/project?id=${portfolio.id}`} className="service-details portfolio-details">
                                         {portfolio.name}
-                                    </a>
+                                    </Link>
                                 </div>
                             )
                         }) : all_portfolios && all_portfolios.map((portfolio, index) => {
                             return(
                                 <div className="service-card" key={index}>
                                     <img className='img-fluid' src={portfolio.image} alt="" />
-                                    <a href='/' className="service-details portfolio-details">
+                                    <Link to={`/project?id=${portfolio.id}`} className="service-details portfolio-details">
                                         {portfolio.name}
-                                    </a>
+                                    </Link>
                                 </div>
                             )
                         })
