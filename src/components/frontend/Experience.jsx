@@ -8,9 +8,9 @@ const Experience = () => {
         <div className='container skills-section py-5'>
             <div className="d-flex justify-content-between flex-wrap w-100">
                 {
-                    experience.map((experience) => {
+                    experience.map((experience, index) => {
                         return(
-                            <div className="col-12 col-md-6 d-flex my-2">
+                            <div key={index} className="col-12 col-md-6 d-flex my-2">
                                 <div className="experience-left">
                                     {
                                         experience.type === 'job' ?

@@ -13,9 +13,9 @@ const PricingSection = () => {
             <div className="container skills-section">
                 <div className="services-cards w-100 d-flex justify-content-between flex-wrap">
                     {
-                        pricing.map((price) => {
+                        pricing.map((price, index) => {
                             return(
-                                <div className="service-card pricing-card">
+                                <div key={index} className="service-card pricing-card">
                                     <img width={50} height={100} className='py-3' src={price.icon} alt=''/>
                                     <h6>For {price.title}</h6>
                                     <div dangerouslySetInnerHTML={{__html: price.description}} />

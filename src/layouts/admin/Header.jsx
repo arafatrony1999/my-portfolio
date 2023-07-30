@@ -19,6 +19,7 @@ import Button from '@mui/material/Button';
 import { BsChevronDown } from "react-icons/bs";
 import profile from '../../assets/images/formal.jpg'
 import { useContactContext } from '../../context/ContactContext';
+import { useServiceContext } from '../../context/ServiceContext';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -65,6 +66,7 @@ export default function PrimarySearchAppBar() {
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
     const { unseen } = useContactContext()
+    const { unseenService } = useServiceContext()
 
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -133,7 +135,7 @@ export default function PrimarySearchAppBar() {
         >
             <MenuItem>
                 <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-                    <Badge badgeContent={4} color="error">
+                    <Badge badgeContent={unseenService} color="error">
                         <MailIcon />
                     </Badge>
                 </IconButton>
@@ -199,7 +201,7 @@ export default function PrimarySearchAppBar() {
                     <Box sx={{ flexGrow: 1 }} />
                     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-                            <Badge badgeContent={4} color="error">
+                            <Badge badgeContent={unseenService} color="error">
                                 <MailIcon />
                             </Badge>
                         </IconButton>

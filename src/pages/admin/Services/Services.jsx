@@ -3,10 +3,10 @@ import DataTable from 'react-data-table-component'
 import DeleteModal from './DeleteModal'
 import { toast } from 'react-toastify'
 import { FaTrash } from "react-icons/fa";
-import { useContactContext } from '../../../context/ContactContext'
+import { useServiceContext } from '../../../context/ServiceContext'
 
-const Contacts = () => {
-    const { loading, filteredContacts, getContacts, setFilteredContacts, setSeenStatus } = useContactContext()
+const Services = () => {
+    const { loading, filteredServices, getServices, setFilteredServices, setSeenStatus } = useServiceContext()
 
     const [deleteModalShow, setDeleteModalShow] = useState(false);
 
@@ -24,10 +24,10 @@ const Contacts = () => {
     }
     
     const onDeleteSuccess = () => {
-        getContacts()
+        getServices()
         setDeleteModalShow(false)
 
-        toast.success('Contact deleted successfully!', {
+        toast.success('Service deleted successfully!', {
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
@@ -40,7 +40,7 @@ const Contacts = () => {
     }
 
     useEffect(() => {
-        setFilteredContacts(search)
+        setFilteredServices(search)
         //eslint-disable-next-line
     }, [search])
     
@@ -57,6 +57,10 @@ const Contacts = () => {
         {
             name: 'Phone',
             selector: row => row.phone,
+        },
+        {
+            name: 'Package',
+            selector: row => row.pricing ? <span>{row.pricing.title}</span> : <span>No package selected</span>
         },
         {
             name: 'Message',
@@ -78,10 +82,10 @@ const Contacts = () => {
             <div className='page-container'>
                 <DataTable
                     columns={columns}
-                    data={filteredContacts}
+                    data={filteredServices}
                     pagination
                     progressPending={loading && 'Loading...'}
-                    title='Contacts'
+                    title='Services'
                     fixedHeader
                     fixedHeaderScrollHeight='50%'
                     selectableRows
@@ -105,4 +109,4 @@ const Contacts = () => {
     )
 }
 
-export default Contacts
+export default Services

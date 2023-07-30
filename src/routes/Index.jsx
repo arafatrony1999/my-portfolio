@@ -44,6 +44,8 @@ import EditPricing from '../pages/admin/Pricing/EditPricing';
 import Experience from '../pages/admin/Experience/Experience';
 import AddExperience from '../pages/admin/Experience/AddExperience';
 import EditExperience from '../pages/admin/Experience/EditExperience';
+import GetServicePage from '../pages/frontend/GetServicePage';
+import Services from '../pages/admin/Services/Services';
 
 const Index = () => {
     return (
@@ -57,6 +59,8 @@ const Index = () => {
 
                         <Route path='/blogs' element={<BlogsPage />} />
                         <Route path='/blog/:slug' element={<BlogPage />} />
+
+                        <Route path='/get_service' element={<GetServicePage />} />
 
                         <Route path='/projects' element={<ProjectsPage />} />
                     </Route>
@@ -94,6 +98,7 @@ const Index = () => {
                         <Route path='experience/edit' element={<EditExperience />} />
 
                         <Route path='contacts' element={<Contacts />} />
+                        <Route path='service_requests' element={<Services />} />
                     </Route>
                 </Routes>
             </BrowserRouter>

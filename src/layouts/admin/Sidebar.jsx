@@ -1,17 +1,19 @@
 import { NavLink } from 'react-router-dom'
-import { FaAssistiveListeningSystems, FaCode, FaDesktop, FaPencilAlt, FaThList, FaUser } from "react-icons/fa";
+import { FaAssistiveListeningSystems, FaBell, FaCode, FaDesktop, FaEnvelope, FaMoneyBillAlt, FaPencilAlt, FaStar, FaThList, FaUser } from "react-icons/fa";
 import { MDBAccordion, MDBAccordionItem } from 'mdb-react-ui-kit';
 import { useContactContext } from '../../context/ContactContext';
+import { useServiceContext } from '../../context/ServiceContext';
 
 const SIDEBAR = () => {
     const { unseen } = useContactContext()
+    const { unseenService } = useServiceContext()
 
     return (
         <div className='side-bar'>
             <div className="side-menu-title">Menu</div>
             <ul>
                 <li>
-                    <NavLink to='/'>
+                    <NavLink to=''>
                         <div className='sidebar-icon'>
                             <FaUser />
                         </div>
@@ -133,7 +135,7 @@ const SIDEBAR = () => {
                         <MDBAccordionItem collapseId={6} headerTitle={
                             <>
                                 <div className='sidebar-icon'>
-                                    <FaAssistiveListeningSystems />
+                                    <FaMoneyBillAlt />
                                 </div>
                                 <div className='sidebar-name'>Pricing</div>
                             </>
@@ -154,7 +156,7 @@ const SIDEBAR = () => {
                         <MDBAccordionItem collapseId={7} headerTitle={
                             <>
                                 <div className='sidebar-icon'>
-                                    <FaAssistiveListeningSystems />
+                                    <FaStar />
                                 </div>
                                 <div className='sidebar-name'>Experience</div>
                             </>
@@ -180,13 +182,26 @@ const SIDEBAR = () => {
                 <li>
                     <NavLink to='contacts'>
                         <div className='sidebar-icon'>
-                            <FaAssistiveListeningSystems />
+                            <FaBell />
                         </div>
                         <div className='sidebar-name'>Contacts</div>
                         {
                             unseen !== 0 &&
                             <div className="contact-badge" style={{marginLeft: 'auto', marginRight: '10px', background: 'red'}}>
                                 {unseen}
+                            </div>
+                        }
+                    </NavLink>
+
+                    <NavLink to='service_requests'>
+                        <div className='sidebar-icon'>
+                            <FaEnvelope />
+                        </div>
+                        <div className='sidebar-name'>Service Requests</div>
+                        {
+                            unseenService !== 0 &&
+                            <div className="contact-badge" style={{marginLeft: 'auto', marginRight: '10px', background: 'red'}}>
+                                { unseenService }
                             </div>
                         }
                     </NavLink>

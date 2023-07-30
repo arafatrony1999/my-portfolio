@@ -10,6 +10,7 @@ import { TestimonialProvider } from './context/TestimonialContext';
 import { ContactProvider } from './context/ContactContext';
 import { PricingProvider } from './context/PricingContext';
 import { ExperienceProvider } from './context/ExperienceContext';
+import { ServiceProvider } from './context/ServiceContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -21,11 +22,13 @@ root.render(
           <BlogProvider>
             <TestimonialProvider>
               <ContactProvider>
-                <PricingProvider>
-                  <ExperienceProvider>
-                    <App />
-                  </ExperienceProvider>
-                </PricingProvider>
+                <ServiceProvider>
+                  <PricingProvider>
+                    <ExperienceProvider>
+                      <App />
+                    </ExperienceProvider>
+                  </PricingProvider>
+                </ServiceProvider>
               </ContactProvider>
             </TestimonialProvider>
           </BlogProvider>

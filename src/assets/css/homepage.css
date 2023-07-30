@@ -369,9 +369,10 @@
     height: 50px;
 }
 .contact-right input,
-.contact-right textarea{
+.contact-right textarea,
+.contact-right select{
     background: white;
-    padding-left: 15px;
+    padding: 0 15px;
     margin: 10px 0;
     width: 100%;
     border: 1px solid rgb(223, 220, 220);
