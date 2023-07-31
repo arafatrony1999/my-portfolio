@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import BigText from './BigText'
-import { FaMapMarkerAlt, FaRegEnvelope, FaPhoneAlt } from "react-icons/fa";
 import axios from '../../helper/Axios';
 import { toast } from 'react-toastify';
+import { FaMapMarkerAlt, FaRegEnvelope, FaPhoneAlt, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
+import { BsEnvelope, BsTwitter, BsWhatsapp } from "react-icons/bs";
 
 const ContactSection = () => {
     const [name, setName] = useState('')
@@ -68,6 +69,16 @@ const ContactSection = () => {
                         <div className="contact-details">
                             <h4>Phone</h4>
                             <p>+880 1879 923111</p>
+                        </div>
+                    </div>
+
+                    <div className="social-buttons my-4">
+                        <div className="products-others-right">
+                            <a href="https://www.facebook.com/arafatrony1999" target='_blank' rel='noreferrer' style={{background: "#2D4373"}}><FaFacebookF /></a>
+                            <a href="mailto:arafat.rony1999@gmail.com" style={{background: "#0E76E6"}}><BsEnvelope /></a>
+                            <a href="https://twitter.com/ArafatRony1999" target='_blank' rel='noreferrer' style={{background: "#0087BA"}}><BsTwitter /></a>
+                            <a href="https://www.linkedin.com/in/arafatrony1999/" target='_blank' rel='noreferrer' style={{background: "#005983"}}><FaLinkedinIn /></a>
+                            <a href="https://api.whatsapp.com/send?phone=01879923111" target='_blank' rel='noreferrer' style={{background: "#1F7D1E"}}><BsWhatsapp /></a>
                         </div>
                     </div>
                 </div>

@@ -112,15 +112,15 @@ const AddPortfolios = () => {
             <Form className='my-5' onSubmit={onSubmit}>
                 <Form.Group className="mb-3">
                     <Form.Label>Enter Project Name</Form.Label>
-                    <Form.Control onChange={ (e) => setName(e.target.value) } type="text" placeholder="Enter Project Name" />
+                    <Form.Control value={name} onChange={ (e) => setName(e.target.value) } type="text" placeholder="Enter Project Name" />
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Enter Project Link</Form.Label>
-                    <Form.Control onChange={ (e) => setLink(e.target.value) } type="text" placeholder="Enter Project Link" />
+                    <Form.Control value={link} onChange={ (e) => setLink(e.target.value) } type="text" placeholder="Enter Project Link" />
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Enter Github Link</Form.Label>
-                    <Form.Control defaultValue={github} onChange={ (e) => setGithub(e.target.value)} type="text" placeholder="Enter Github Link" />
+                    <Form.Control value={github} onChange={ (e) => setGithub(e.target.value)} type="text" placeholder="Enter Github Link" />
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Enter Project Category</Form.Label>
@@ -138,10 +138,12 @@ const AddPortfolios = () => {
                         required
                     />
                 </Form.Group>
+
                 <Form.Group className="mb-3">
                     <Form.Label>Select Project Display Image</Form.Label>
                     <Form.Control onChange={ (e) => setImage(e.target.files[0]) } type="file" />
                 </Form.Group>
+                
                 <Form.Group className="mb-3">
                     <Form.Label>Description</Form.Label>
                     <CKEditor

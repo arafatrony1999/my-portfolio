@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import { FaAssistiveListeningSystems, FaBell, FaCode, FaDesktop, FaEnvelope, FaMoneyBillAlt, FaPencilAlt, FaStar, FaThList, FaUser } from "react-icons/fa";
+import { FaAssistiveListeningSystems, FaBell, FaCode, FaDesktop, FaEnvelope, FaMoneyBillAlt, FaPencilAlt, FaStar, FaThList, FaUser, FaAdn } from "react-icons/fa";
 import { MDBAccordion, MDBAccordionItem } from 'mdb-react-ui-kit';
 import { useContactContext } from '../../context/ContactContext';
 import { useServiceContext } from '../../context/ServiceContext';
@@ -169,6 +169,27 @@ const SIDEBAR = () => {
                                     </NavLink>
                                     <NavLink to='experience/add'>
                                         <div className='sidebar-name'>Add New Experience</div>
+                                    </NavLink>
+                                </div>
+                            </div>
+                        </MDBAccordionItem>
+                        
+                        <MDBAccordionItem collapseId={8} headerTitle={
+                            <>
+                                <div className='sidebar-icon'>
+                                    <FaAdn />
+                                </div>
+                                <div className='sidebar-name'>About</div>
+                            </>
+                        }>
+                            <div className="btn-toggle-items">
+                                <div className="btn-toggle-left"></div>
+                                <div className="btn-toggle-right">
+                                    <NavLink to='about'>
+                                        <div className='sidebar-name'>All About list</div>
+                                    </NavLink>
+                                    <NavLink to='about/add'>
+                                        <div className='sidebar-name'>Add New About</div>
                                     </NavLink>
                                 </div>
                             </div>

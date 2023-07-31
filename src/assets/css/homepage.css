@@ -79,6 +79,7 @@
     font-size: 18px;
     letter-spacing: 5px;
     transition: all .5s ease;
+    text-align: center;
 }
 .my-btn:hover{
     transform: scale(1.05);
@@ -363,6 +364,10 @@
 .contact-left svg{
     font-size: 50px;
     color: #F06233;
+}
+.contact-left .social-buttons svg{
+    font-size: 20px;
+    color: white;
 }
 .contact-details{
     padding-left: 20px;

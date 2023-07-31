@@ -31,10 +31,6 @@ import Testimonials from '../pages/admin/Testimonials/Testimonials';
 import AddTestimonials from '../pages/admin/Testimonials/AddTestimonial';
 import EditTestimonials from '../pages/admin/Testimonials/EditTestimonial';
 
-import Contacts from '../pages/admin/Contacts/Contacts';
-
-import BlogPage from '../pages/frontend/BlogPage';
-import BlogsPage from '../pages/frontend/BlogsPage';
 
 import Pricing from '../pages/admin/Pricing/Pricing';
 import AddPricing from '../pages/admin/Pricing/AddPricing';
@@ -43,10 +39,22 @@ import EditPricing from '../pages/admin/Pricing/EditPricing';
 import Experience from '../pages/admin/Experience/Experience';
 import AddExperience from '../pages/admin/Experience/AddExperience';
 import EditExperience from '../pages/admin/Experience/EditExperience';
-import GetServicePage from '../pages/frontend/GetServicePage';
+
+import About from '../pages/admin/About/About';
+import AddAbout from '../pages/admin/About/AddAbout';
+import EditAbout from '../pages/admin/About/EditAbout';
+
+import Contacts from '../pages/admin/Contacts/Contacts';
 import Services from '../pages/admin/Services/Services';
+
+import BlogPage from '../pages/frontend/BlogPage';
+import BlogsPage from '../pages/frontend/BlogsPage';
+
+import GetServicePage from '../pages/frontend/GetServicePage';
+
 import ProjectsPage from '../pages/frontend/ProjectsPage';
 import ProjectPage from '../pages/frontend/ProjectPage';
+
 import CategoriesPage from '../pages/frontend/CategoriesPage';
 
 const Index = () => {
@@ -101,6 +109,10 @@ const Index = () => {
                         <Route path='experience' element={<Experience />} />
                         <Route path='experience/add' element={<AddExperience />} />
                         <Route path='experience/edit' element={<EditExperience />} />
+                        
+                        <Route path='about' element={<About />} />
+                        <Route path='about/add' element={<AddAbout />} />
+                        <Route path='about/edit' element={<EditAbout />} />
 
                         <Route path='contacts' element={<Contacts />} />
                         <Route path='service_requests' element={<Services />} />
