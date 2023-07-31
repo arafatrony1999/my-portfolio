@@ -4,8 +4,14 @@ import { useCategoryContext } from '../../context/CategoryContext'
 import { useBlogContext } from '../../context/BlogContext'
 
 const BlogRight = () => {
-    const { categories } = useCategoryContext()
+    const { categories, setFilteredCategory, setFilteredCategoryBlog } = useCategoryContext()
     const { blogs } = useBlogContext()
+
+    const onClick = (id) => {
+        setFilteredCategory(id)
+        setFilteredCategoryBlog(id)
+    }
+
     return (
         <div className='w-100'>
             <input type="text" placeholder='Search...' className='w-100 mb-5' />
@@ -17,7 +23,7 @@ const BlogRight = () => {
                     categories.map((category) => {
                         return(
                             <li key={category.id} className=' list-unstyled py-2'>
-                                <Link to='/'>{category.name}</Link>
+                                <Link onClick={() => onClick(category.id)} to='/categories'>{category.name}</Link>
                             </li>
                         )
                     })

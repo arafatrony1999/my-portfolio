@@ -10,18 +10,18 @@ const PortfolioSection = () => {
     const { all_portfolios } = usePortfolioContext()
     return (
         <>
-            <BigText big='PORTFOLIO' normal='RESENT' colored='WORK' />
+            <BigText big='PORTFOLIO' normal='RESENT' colored='WORKS' />
             
             <div className='container skills-section my-5'>
 
                 <div className="portfolio-links d-flex mx-auto my-3 flex-wrap">
-                    <button onClick={() => setFilteredCategory(0)}>All</button>
+                    <button className={single_category.length === 0 ? 'text-danger' : undefined} onClick={() => setFilteredCategory(0)}>All</button>
                     {
                         categories.filter((category) => {
                             return category.type === 'website'
                         }).map((category, index) => {
                             return(
-                                <button key={index} onClick={() => setFilteredCategory(category.id)}>{category.name}</button>
+                                <button className={single_category.length !== 0 && single_category[0].id === category.id ? 'text-danger' : undefined} key={index} onClick={() => setFilteredCategory(category.id)}>{category.name}</button>
                             )
                         })
                     }
@@ -30,7 +30,9 @@ const PortfolioSection = () => {
                 
                 <div className="services-cards w-100 d-flex justify-content-between flex-wrap">
                     {
-                        single_category.length !== 0 ? single_category[0].portfolios.map((portfolio, index) => {
+                        single_category.length !== 0 ?
+                        single_category[0].portfolios.length !== 0 ?
+                        single_category[0].portfolios.map((portfolio, index) => {
                             return(
                                 <div className="service-card" key={index}>
                                     <img className='img-fluid' src={portfolio.image} alt="" />
@@ -39,7 +41,7 @@ const PortfolioSection = () => {
                                     </Link>
                                 </div>
                             )
-                        }) : all_portfolios && all_portfolios.map((portfolio, index) => {
+                        }) : <h3 className=' w-100 text-center text-danger'>No project available for this category!</h3> : all_portfolios && all_portfolios.map((portfolio, index) => {
                             return(
                                 <div className="service-card" key={index}>
                                     <img className='img-fluid' src={portfolio.image} alt="" />

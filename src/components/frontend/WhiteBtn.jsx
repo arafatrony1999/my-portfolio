@@ -1,10 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const WhiteBtn = () => {
+const WhiteBtn = (props) => {
     return (
-        <button className='my-btn white-btn'>
-            hire me now
-        </button>
+        <Link to={props.btnLink} className='my-btn white-btn'>
+            {props.btnText}
+        </Link>
     )
 }
 

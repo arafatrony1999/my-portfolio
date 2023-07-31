@@ -5,6 +5,8 @@ const BlogReducer = (state, action) => {
             loading: true,
             blogs: [],
             filteredBlogs: [],
+            commentSuccess: false,
+            replySuccess: false,
         }
     }
 
@@ -14,6 +16,8 @@ const BlogReducer = (state, action) => {
             loading: false,
             blogs: action.payload,
             filteredBlogs: action.payload,
+            commentSuccess: false,
+            replySuccess: false,
         }
     }
 
@@ -28,13 +32,17 @@ const BlogReducer = (state, action) => {
             ...state,
             loading: false,
             filteredBlogs: result,
+            commentSuccess: false,
+            replySuccess: false,
         }
     }
 
     if(action.type === 'SET_SINGLE_BLOG'){
         return{
             ...state,
-            singleBlog: action.payload[0]
+            singleBlog: action.payload[0],
+            commentSuccess: false,
+            replySuccess: false,
         }
     }
 
@@ -42,6 +50,8 @@ const BlogReducer = (state, action) => {
         return{
             ...state,
             commentReplyId: action.payload,
+            commentSuccess: false,
+            replySuccess: false,
         }
     }
 
@@ -49,6 +59,24 @@ const BlogReducer = (state, action) => {
         return{
             ...state,
             commentReplyId: '',
+            commentSuccess: false,
+            replySuccess: false,
+        }
+    }
+
+    if(action.type === 'SET_COMMENT_SUCCESS'){
+        return{
+            ...state,
+            commentSuccess: true,
+            replySuccess: false,
+        }
+    }
+    
+    if(action.type === 'SET_REPLY_SUCCESS'){
+        return{
+            ...state,
+            commentSuccess: false,
+            replySuccess: true,
         }
     }
 

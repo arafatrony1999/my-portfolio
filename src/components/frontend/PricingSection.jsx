@@ -30,7 +30,7 @@ const PricingSection = () => {
             
                                     
                                     <div className="text-center my-2 w-100">
-                                        <ColoredBtn btnLink={`/get_service?package=${price.id}`} btnText='Choose this package'  />
+                                        <ColoredBtn btnLink={`/get_service?package_id=${price.id}`} btnText='Choose this package'  />
                                     </div>
                                 </div>
                             )

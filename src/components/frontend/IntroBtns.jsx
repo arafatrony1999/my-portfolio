@@ -6,7 +6,7 @@ const IntroBtns = () => {
     return (
         <div className='intro-btns'>
             <BlackBtn />
-            <WhiteBtn />
+            <WhiteBtn btnLink='/get_service' btnText='Hire me now' />
         </div>
     )
 }

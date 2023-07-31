@@ -1,7 +1,7 @@
 import { BsSearch, BsXLg } from "react-icons/bs";
 import logo from '../../assets/images/logo.png'
 import formal from '../../assets/images/formal.jpg'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { FaBars } from "react-icons/fa";
 import { useState } from "react";
 
@@ -31,22 +31,25 @@ const Header = () => {
                         </div>
 
                         <li>
-                            <Link to={'/'}>Home</Link>
+                            <NavLink to='/'>Home</NavLink>
                         </li>
                         <li>
-                            <Link to={'/'}>Services</Link>
+                            <NavLink to='/projects'>Portfolio</NavLink>
                         </li>
                         <li>
-                            <Link to={'/'}>Reviews</Link>
+                            <NavLink to='/blogs'>Blogs</NavLink>
                         </li>
                         <li>
-                            <Link to={'/'}>Pricing</Link>
+                            <NavLink to='/services'>Services</NavLink>
                         </li>
                         <li>
-                            <Link to={'/'}>Blogs</Link>
+                            <NavLink to='/testimonials'>Reviews</NavLink>
                         </li>
                         <li>
-                            <Link to={'/'}>Contacts</Link>
+                            <NavLink to='/pricing'>Pricing</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to='/contacts'>Contacts</NavLink>
                         </li>
                     </ul>
                 </div>

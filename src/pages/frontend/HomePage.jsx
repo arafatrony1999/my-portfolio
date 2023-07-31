@@ -30,8 +30,8 @@ const HomePage = () => {
             <BigText big='ABOUT' normal='ABOUT' colored='ME' />
             <AboutSection />
             <Hr />
-            <div className="w-100 d-flex justify-content-center">
-                <a href={pdf} className="d-inline-block my-btn colored-btn my-5 mx-auto">download resume</a>
+            <div className="w-100 d-flex justify-content-center px-2">
+                <a href={pdf} className="d-inline-block my-btn colored-btn my-5 mx-auto text-center">download resume</a>
             </div>
             <Hr />
             <SmallTitle normal='MY' colored='SKILLS' />

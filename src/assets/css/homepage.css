@@ -1,7 +1,9 @@
 .homepage{
     width: 100vw;
 }
-
+.min-height{
+    min-height: calc(100vh - 150px);
+}
 .page-title{
     padding-top: 40px;
     background: #F8F8F8;
@@ -61,6 +63,9 @@
     padding: 20px 0;
     display: flex;
     justify-content: center;
+}
+.intro-btns a{
+    margin: 10px;
 }
 .intro-btns button{
     margin: 10px;

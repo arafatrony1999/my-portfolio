@@ -32,7 +32,11 @@ const BlogsSection = () => {
                                             {blog.meta_description.slice(0, 100)}...
                                         </p>
 
-                                        <p><DateFormat date={blog.created_at} /></p>
+                                        <p>
+                                            🕒
+                                            <span className="px-1"></span>
+                                            <DateFormat date={blog.created_at} />
+                                        </p>
                                     </div>
                                 </div>
                             )

@@ -71,6 +71,9 @@ body{
 .front-header .header-links ul li a:hover{
     color: #F06233;
 }
+.front-header .header-links ul li a.active{
+    color: #F06233;
+}
 .header-search{
     border: 1px solid black;
     height: fit-content;

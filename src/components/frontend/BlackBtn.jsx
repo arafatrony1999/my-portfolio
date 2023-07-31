@@ -1,10 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const BlackBtn = () => {
     return (
-        <button className='my-btn black-btn'>
+        <Link to='/projects' className='my-btn black-btn'>
             PORTFOLIO
-        </button>
+        </Link>
     )
 }
 

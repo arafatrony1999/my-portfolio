@@ -14,13 +14,13 @@ const BlogsPage = () => {
         <div className='container'>
             <HireMeAdd />
 
-            <BigText big='ARTICLES' normal='NEW &' colored='INSIGHTS' />
+            <BigText big='ARTICLES' normal='NEW BLOGS &' colored='INSIGHTS' />
 
             <div className="blogs-categories bg-dark mt-5 text-center d-flex flex-wrap py-2 justify-content-center">
-                    <button className='text-white h5 px-3' onClick={() => setFilteredCategoryBlog(0)}>All</button>
+                    <button className={`h5 px-3 ${single_category_blog.length === 0 ? 'text-danger' : 'text-white'}`} onClick={() => setFilteredCategoryBlog(0)}>All</button>
                 {
                     categories.map((category, index) => {
-                        return <button onClick={() => setFilteredCategoryBlog(category.id)} key={index} className='text-white h5 px-3'>{category.name}</button>
+                        return <button onClick={() => setFilteredCategoryBlog(category.id)} key={index} className={`h5 px-3 ${single_category_blog.length !== 0 && single_category_blog[0].id === category.id ? 'text-danger' : 'text-white'}`}>{category.name}</button>
                     })
                 }
             </div>

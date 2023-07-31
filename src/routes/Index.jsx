@@ -47,6 +47,7 @@ import GetServicePage from '../pages/frontend/GetServicePage';
 import Services from '../pages/admin/Services/Services';
 import ProjectsPage from '../pages/frontend/ProjectsPage';
 import ProjectPage from '../pages/frontend/ProjectPage';
+import CategoriesPage from '../pages/frontend/CategoriesPage';
 
 const Index = () => {
     return (
@@ -62,8 +63,11 @@ const Index = () => {
                         <Route path='/blog/:slug' element={<BlogPage />} />
 
                         <Route path='/get_service' element={<GetServicePage />} />
+
                         <Route path='/project' element={<ProjectPage />} />
                         <Route path='/projects' element={<ProjectsPage />} />
+
+                        <Route path='/categories' element={<CategoriesPage />} />
                     </Route>
 
 

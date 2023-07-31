@@ -42,7 +42,7 @@ const GetServicePage = () => {
         }),
         input: (provided, state) => ({
             ...provided,
-            margin: '0'
+            margin: '0px'
         }),
         indicatorContainer: (provided, state) => ({
             ...provided,

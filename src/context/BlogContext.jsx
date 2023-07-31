@@ -10,6 +10,8 @@ const initialState = {
     filteredBlogs: [],
     singleBlog: null,
     commentReplyId: '',
+    commentSuccess: false,
+    replySuccess: false,
 }
 
 const BlogProvider = ( {children} ) => {
@@ -50,6 +52,7 @@ const BlogProvider = ( {children} ) => {
         .then((res) => {
             if(res.data === 1){
                 setSingleBlog(blog.slug)
+                dispatch({type: 'SET_COMMENT_SUCCESS'})
             }
         })
         .catch((error) => {
@@ -69,6 +72,7 @@ const BlogProvider = ( {children} ) => {
         .then((res) => {
             if(res.data === 1){
                 setSingleBlog(slug)
+                dispatch({type: 'SET_REPLY_SUCCESS'})
             }
         })
         .catch((error) => {

@@ -44,7 +44,7 @@ const ContactSection = () => {
         })
     }
     return (
-        <div className='pricing-section'>
+        <div className='pricing-section' id='contacts'>
             <BigText big='CONTACT' normal='GET A FREE' colored='CONSULTANT' />
 
             <div className="container skills-section">

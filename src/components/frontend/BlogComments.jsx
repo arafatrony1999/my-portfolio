@@ -1,13 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import formal from '../../assets/images/formal.jpg'
 import Form from 'react-bootstrap/Form';
 import ReplyComment from './ReplyComment'
 import { useBlogContext } from '../../context/BlogContext';
 import { BsArrowReturnRight } from "react-icons/bs";
 import DateFormat from '../../helper/DateFormat';
+import { toast } from 'react-toastify';
 
 const BlogComments = () => {
-    const { addComment, singleBlog, setCommentReplyId, commentReplyId } = useBlogContext()
+    const { addComment, singleBlog, setCommentReplyId, commentReplyId, commentSuccess } = useBlogContext()
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -17,6 +18,25 @@ const BlogComments = () => {
         e.preventDefault()
         addComment(singleBlog, name, email, comment)
     }
+
+    useEffect(() => {
+        if(commentSuccess){
+            setName('')
+            setEmail('')
+            setComment('')
+
+            toast.success('Comment Submitted!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+        }
+    }, [commentSuccess])
 
     return (
         <>
@@ -29,7 +49,7 @@ const BlogComments = () => {
                             <div key={index} className="single-comment my-3 border-bottom py-2">
                                 <div className="d-flex justify-content-between">
                                     <div className='d-flex'>
-                                        <img className='rounded-circle' width={40} height={40} src={formal} alt="" />
+                                        <img className='rounded-circle' width={40} height={40} src={comment.author ? formal : 'https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png'} alt="" />
                                         <div className='d-flex m-auto'>
                                             <h4 className='px-3'>{comment.name}</h4>
                                         </div>
@@ -57,7 +77,7 @@ const BlogComments = () => {
                                                     <div key={index} className="single-comment" style={{paddingLeft: '20px'}}>
                                                         <div className="d-flex justify-content-between">
                                                             <div className='d-flex'>
-                                                                <img className='rounded-circle' width={40} height={40} src={formal} alt="" />
+                                                                <img className='rounded-circle' width={40} height={40} src={reply.author ? formal : 'https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png'} alt="" />
                                                                 <div className='d-flex m-auto'>
                                                                     <h4 className='px-3'>{reply.name}</h4>
                                                                 </div>
@@ -88,15 +108,15 @@ const BlogComments = () => {
                 <Form onSubmit={onSubmit}>
                     <Form.Group className="mb-3">
                         <Form.Label>Name *</Form.Label>
-                        <Form.Control onChange={(e) => setName(e.target.value)} type="text" placeholder="Enter your name" />
+                        <Form.Control value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Enter your name" />
                     </Form.Group>
                     <Form.Group className="mb-3">
                         <Form.Label>Email *</Form.Label>
-                        <Form.Control onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Enter your email" />
+                        <Form.Control value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Enter your email" />
                     </Form.Group>
                     <Form.Group className="mb-3">
                         <Form.Label>Comment *</Form.Label>
-                        <Form.Control onChange={(e) => setComment(e.target.value)} as="textarea" rows={3} placeholder='Write your comment here...' />
+                        <Form.Control value={comment} onChange={(e) => setComment(e.target.value)} as="textarea" rows={3} placeholder='Write your comment here...' />
                     </Form.Group>
 
                     <button type='submit' className='py-1 px-2 colored-btn'>Post Comment</button>
