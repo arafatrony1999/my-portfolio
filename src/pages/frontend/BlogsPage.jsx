@@ -52,7 +52,7 @@ const BlogsPage = () => {
                                 </div>
                             )
                         }) : <h3 className=' w-100 text-center text-danger'>No blog available for this category!</h3> : 
-                        blogs && blogs.map((blog, index) => {
+                        blogs ? blogs.map((blog, index) => {
                             return(
                                 <div key={index} className="blogs-card blog-page-card mb-3">
                                     <div className="blog-image">
@@ -73,7 +73,7 @@ const BlogsPage = () => {
                                     </div>
                                 </div>
                             )
-                        })
+                        }) : <h3 className=' w-100 text-center text-danger'>No blog available!</h3>
                     }
                 </div>
         </div>

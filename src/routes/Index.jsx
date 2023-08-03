@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { HashRouter, Route, Routes } from 'react-router-dom'
 
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
@@ -62,7 +62,7 @@ const Index = () => {
         <>
             <ToastContainer />
 
-            <BrowserRouter>
+            <HashRouter>
                 <Routes>
                     <Route path='/' element={<MasterLayoutFrontEnd />} >
                         <Route index element={<HomePageFrontEnd />} />
@@ -118,7 +118,7 @@ const Index = () => {
                         <Route path='service_requests' element={<Services />} />
                     </Route>
                 </Routes>
-            </BrowserRouter>
+            </HashRouter>
         </>
     )
 }

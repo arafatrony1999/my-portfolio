@@ -5,8 +5,13 @@ import { usePortfolioContext } from '../../context/PortfolioContext'
 
 
 const PortfolioRight = () => {
-    const { categories } = useCategoryContext()
+    const { categories, setFilteredCategory, setFilteredCategoryBlog } = useCategoryContext()
     const { portfolios } = usePortfolioContext()
+
+    const onClick = (id) => {
+        setFilteredCategory(id)
+        setFilteredCategoryBlog(id)
+    }
 
     return (
         <div className='w-100'>
@@ -19,7 +24,7 @@ const PortfolioRight = () => {
                     categories.map((category) => {
                         return(
                             <li key={category.id} className=' list-unstyled py-2'>
-                                <Link to='/'>{category.name}</Link>
+                                <Link onClick={() => onClick(category.id)} to='/categories'>{category.name}</Link>
                             </li>
                         )
                     })

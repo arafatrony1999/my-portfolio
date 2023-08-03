@@ -37,14 +37,17 @@ const TestimonialSection = () => {
 
             <div className="container skills-section my-5">
                 <div className="w-100 overflow-visible position-relative">
-                    <div className="testimonial-buttons">
-                        <button onClick={() => gotoPrev()}>
-                            <BsArrowLeftShort />
-                        </button>
-                        <button onClick={() => gotoNext()}>
-                            <BsArrowRightShort />
-                        </button>
-                    </div>
+                    {
+                        testimonials &&
+                        <div className="testimonial-buttons">
+                            <button onClick={() => gotoPrev()}>
+                                <BsArrowLeftShort />
+                            </button>
+                            <button onClick={() => gotoNext()}>
+                                <BsArrowRightShort />
+                            </button>
+                        </div>
+                    }
                     
                     <Slider {...settings} ref={customSlider}>
                         {

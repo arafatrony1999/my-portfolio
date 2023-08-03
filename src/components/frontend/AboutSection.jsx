@@ -3,6 +3,7 @@ import { useAboutContext } from '../../context/AboutContext'
 
 const AboutSection = () => {
     const { about } = useAboutContext()
+    
     return (
         <div className='about-section container'>
             {

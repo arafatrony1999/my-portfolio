@@ -38,7 +38,8 @@ const ProjectsPage = () => {
                                 </Link>
                             </div>
                         )
-                    }) : <h3 className=' w-100 text-center text-danger'>No portfolio available for this category!</h3> : all_portfolios && all_portfolios.map((portfolio, index) => {
+                    }) : <h3 className=' w-100 text-center text-danger'>No portfolio available for this category!</h3> :
+                    all_portfolios ? all_portfolios.map((portfolio, index) => {
                         return(
                             <div className="service-card" key={index}>
                                 <img className='img-fluid' src={portfolio.image} alt="" />
@@ -47,7 +48,7 @@ const ProjectsPage = () => {
                                 </Link>
                             </div>
                         )
-                    })
+                    }) : <h3 className=' w-100 text-center text-danger'>No project available!</h3>
                 }
                 <div className="service-card"></div>
                 <div className="service-card"></div>

@@ -38,7 +38,7 @@ const Experience = () => {
                         )
                     })
                 }
-                <div className="col-12 col-md-6 d-flex my-2">
+                {/* <div className="col-12 col-md-6 d-flex my-2">
                     <div className="experience-left">
                         <div>
                             <FaBriefcase />
@@ -105,7 +105,7 @@ const Experience = () => {
                         <h5>DHAKA COLLEGE MSc</h5>
                         <p>Master of Science in Mathematics (15 March, 2023 - Running...)</p>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     )
