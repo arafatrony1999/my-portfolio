@@ -8,11 +8,9 @@ import Login from '../../components/admin/Login'
 
 const MasterLayout = () => {
     const { authentication, loading } = useAdminContext()
-console.log(loading)
+
     if(loading){
-        console.log('first')
-    }else{
-        console.log(' ssd')
+        return <h1>Loading...</h1>
     }
 
     return (

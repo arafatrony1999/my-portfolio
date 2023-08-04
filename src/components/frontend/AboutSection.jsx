@@ -7,9 +7,9 @@ const AboutSection = () => {
     return (
         <div className='about-section container'>
             {
-                about.map((about) => {
+                about.map((about, index) => {
                     return(
-                        <div className="about-card my-2">
+                        <div key={index} className="about-card my-2">
                             <span>{about.number}+</span>
                             <span>{about.title}</span>
                         </div>

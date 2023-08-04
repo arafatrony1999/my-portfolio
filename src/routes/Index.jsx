@@ -56,6 +56,10 @@ import ProjectsPage from '../pages/frontend/ProjectsPage';
 import ProjectPage from '../pages/frontend/ProjectPage';
 
 import CategoriesPage from '../pages/frontend/CategoriesPage';
+import ServicesPage from '../pages/frontend/ServicesPage';
+import ReviewsPage from '../pages/frontend/ReviewsPage';
+import PricingPage from '../pages/frontend/PricingPage';
+import ContactPage from '../pages/frontend/ContactPage';
 
 const Index = () => {
     return (
@@ -76,6 +80,11 @@ const Index = () => {
                         <Route path='/projects' element={<ProjectsPage />} />
 
                         <Route path='/categories' element={<CategoriesPage />} />
+
+                        <Route path='/services' element={<ServicesPage />} />
+                        <Route path='/reviews' element={<ReviewsPage />} />
+                        <Route path='/pricing' element={<PricingPage />} />
+                        <Route path='/contacts' element={<ContactPage />} />
                     </Route>
 
 
