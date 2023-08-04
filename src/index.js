@@ -12,32 +12,35 @@ import { PricingProvider } from './context/PricingContext';
 import { ExperienceProvider } from './context/ExperienceContext';
 import { ServiceProvider } from './context/ServiceContext';
 import { AboutProvider } from './context/AboutContext';
+import { AdminProvider } from './context/AdminContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <PortfolioProvider>
-      <CategoryProvider>
-        <SkillProvider>
-          <BlogProvider>
-            <TestimonialProvider>
-              <ContactProvider>
-                <ServiceProvider>
-                  <PricingProvider>
-                    <ExperienceProvider>
-                      <AboutProvider>
-                        <App />
-                      </AboutProvider>
-                    </ExperienceProvider>
-                  </PricingProvider>
-                </ServiceProvider>
-              </ContactProvider>
-            </TestimonialProvider>
-          </BlogProvider>
-        </SkillProvider>
-      </CategoryProvider>
-    </PortfolioProvider>
+    <AdminProvider>
+      <PortfolioProvider>
+        <CategoryProvider>
+          <SkillProvider>
+            <BlogProvider>
+              <TestimonialProvider>
+                <ContactProvider>
+                  <ServiceProvider>
+                    <PricingProvider>
+                      <ExperienceProvider>
+                        <AboutProvider>
+                          <App />
+                        </AboutProvider>
+                      </ExperienceProvider>
+                    </PricingProvider>
+                  </ServiceProvider>
+                </ContactProvider>
+              </TestimonialProvider>
+            </BlogProvider>
+          </SkillProvider>
+        </CategoryProvider>
+      </PortfolioProvider>
+    </AdminProvider>
   </React.StrictMode>
 );
 

@@ -1,28 +1,41 @@
 const AdminReducer = (state, action) => {
-    if(state.type === 'INITIAL_STATE'){
+    if(action.type === 'INITIAL_STATE'){
         return{
             ...state,
             loading: true,
             authentication: false,
-            user: []
+            user: [],
+            wrong: false,
         }
     }
 
-    if(state.type === 'API_DATA'){
+    if(action.type === 'API_DATA'){
         return{
             ...state,
             loading: false,
             user: action.payload,
-            authentication: true
+            authentication: true,
+            wrong: false,
         }
     }
 
-    if(state.type === 'NO_USER_FOUND'){
+    if(action.type === 'NO_USER_FOUND'){
         return{
             ...state,
             loading: false,
             user: [],
-            authentication: false
+            authentication: false,
+            wrong: false,
+        }
+    }
+
+    if(action.type === 'WRONG_CREDENTIAL'){
+        return{
+            ...state,
+            loading: false,
+            user: [],
+            authentication: false,
+            wrong: true,
         }
     }
 
