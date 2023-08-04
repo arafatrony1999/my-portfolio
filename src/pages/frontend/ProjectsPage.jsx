@@ -3,6 +3,7 @@ import { useCategoryContext } from '../../context/CategoryContext'
 import { usePortfolioContext } from '../../context/PortfolioContext'
 import { Link } from 'react-router-dom'
 import BigText from '../../components/frontend/BigText'
+import HireMeAdd from '../../components/frontend/HireMeAdd'
 
 const ProjectsPage = () => {
     const { categories, setFilteredCategory, single_category } = useCategoryContext()
@@ -10,6 +11,8 @@ const ProjectsPage = () => {
 
     return (
         <div className='container min-height'>
+            <HireMeAdd />
+
             <BigText big='PORTFOLIO' normal='RESENT' colored='WORKS' />
             
             <div className="bg-dark mt-5 text-center d-flex flex-wrap py-2 justify-content-center">
