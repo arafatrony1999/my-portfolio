@@ -31,25 +31,25 @@ const Header = () => {
                         </div>
 
                         <li>
-                            <NavLink to='/'>Home</NavLink>
+                            <NavLink onClick={handleClick} to='/'>Home</NavLink>
                         </li>
                         <li>
-                            <NavLink to='/projects'>Portfolios</NavLink>
+                            <NavLink onClick={handleClick} to='/projects'>Portfolios</NavLink>
                         </li>
                         <li>
-                            <NavLink to='/blogs'>Blogs</NavLink>
+                            <NavLink onClick={handleClick} to='/blogs'>Blogs</NavLink>
                         </li>
                         <li>
-                            <NavLink to='/services'>Services</NavLink>
+                            <NavLink onClick={handleClick} to='/services'>Services</NavLink>
                         </li>
                         <li>
-                            <NavLink to='/reviews'>Reviews</NavLink>
+                            <NavLink onClick={handleClick} to='/reviews'>Reviews</NavLink>
                         </li>
                         <li>
-                            <NavLink to='/pricing'>Pricing</NavLink>
+                            <NavLink onClick={handleClick} to='/pricing'>Pricing</NavLink>
                         </li>
                         <li>
-                            <NavLink to='/contacts'>Contacts</NavLink>
+                            <NavLink onClick={handleClick} to='/contacts'>Contacts</NavLink>
                         </li>
                     </ul>
                 </div>
