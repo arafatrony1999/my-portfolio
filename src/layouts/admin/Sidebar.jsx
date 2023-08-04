@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import { FaAssistiveListeningSystems, FaBell, FaCode, FaDesktop, FaEnvelope, FaMoneyBillAlt, FaPencilAlt, FaStar, FaThList, FaUser, FaAdn } from "react-icons/fa";
+import { FaAssistiveListeningSystems, FaBell, FaCode, FaDesktop, FaEnvelope, FaMoneyBillAlt, FaPencilAlt, FaStar, FaThList, FaUser, FaAdn, FaGlobe } from "react-icons/fa";
 import { MDBAccordion, MDBAccordionItem } from 'mdb-react-ui-kit';
 import { useContactContext } from '../../context/ContactContext';
 import { useServiceContext } from '../../context/ServiceContext';
@@ -18,6 +18,13 @@ const SIDEBAR = () => {
                             <FaUser />
                         </div>
                         <div className='sidebar-name'>Dashboard</div>
+                    </NavLink>
+                    
+                    <NavLink to='/'>
+                        <div className='sidebar-icon'>
+                            <FaGlobe />
+                        </div>
+                        <div className='sidebar-name'>Main Website</div>
                     </NavLink>
                 </li>
             </ul>

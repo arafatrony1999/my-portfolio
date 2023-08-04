@@ -66,6 +66,7 @@ const BlogComments = () => {
                                 {
                                     commentReplyId === comment.id && <ReplyComment slug={singleBlog.slug} comment={comment} />
                                 }
+                                
                                 <div style={{paddingLeft: '10px'}}>
                                     {
                                         comment.replies.map((reply, index) => {

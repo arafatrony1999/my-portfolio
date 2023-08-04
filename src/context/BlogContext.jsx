@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import reducer from '../reducer/BlogReducer'
 import axios from '../helper/Axios'
+import { useAdminContext } from './AdminContext'
 
 const BlogContext = createContext()
 
@@ -16,6 +17,8 @@ const initialState = {
 
 const BlogProvider = ( {children} ) => {
     const [state, dispatch] = useReducer(reducer, initialState)
+
+    const { authentication } = useAdminContext()
 
     const getBlogs = async () => {
         dispatch({type: 'SET_INITIAL_STATUS'})
@@ -47,6 +50,7 @@ const BlogProvider = ( {children} ) => {
         formData.append('name', name)
         formData.append('email', email)
         formData.append('comment', comment)
+        formData.append('author', authentication ? true : false)
 
         axios.post('/addComment', formData)
         .then((res) => {
@@ -67,6 +71,7 @@ const BlogProvider = ( {children} ) => {
         formData.append('name', name)
         formData.append('email', email)
         formData.append('reply', reply)
+        formData.append('author', authentication ? true : false)
 
         axios.post('/addReply', formData)
         .then((res) => {
