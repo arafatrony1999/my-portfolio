@@ -8,11 +8,16 @@ const Login = () => {
 
     const [user, setUser] = useState('')
     const [password, setPassword] = useState('')
+    const [isChecked, setIsChecked] = useState(false)
+
+    const handleClick = () => {
+        setIsChecked(!isChecked)
+    }
 
     const onSubmit = (e) => {
         e.preventDefault()
 
-        login(user, password)
+        login(user, password, isChecked)
     }
 
     return (
@@ -49,7 +54,7 @@ const Login = () => {
                             
                             <div className="message">
                                 <div>
-                                    <input type="checkbox" /> Remember ME
+                                    <input type="checkbox" checked={isChecked} onChange={handleClick} /> Remember ME
                                 </div>
                                 <div>
                                     <a className='text-white' href="/">Forgot your password</a>

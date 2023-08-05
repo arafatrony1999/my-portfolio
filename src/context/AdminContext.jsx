@@ -25,7 +25,7 @@ const AdminProvider = ( {children} ) => {
         }
     }
 
-    const login = (user, password) => {
+    const login = (user, password, isChecked) => {
         dispatch({type: 'INITIAL_STATE'})
         const formData = new FormData()
 
@@ -37,7 +37,9 @@ const AdminProvider = ( {children} ) => {
             if(res.data === 0){
                 dispatch({type: 'WRONG_CREDENTIAL'})
             }else{
-                localStorage.setItem('admin', JSON.stringify(res.data))
+                if(isChecked){
+                    localStorage.setItem('admin', JSON.stringify(res.data))
+                }
                 dispatch({type: 'API_DATA', payload: res.data})
             }
         })
