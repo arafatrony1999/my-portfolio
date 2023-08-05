@@ -20,6 +20,7 @@ import { BsChevronDown } from "react-icons/bs";
 import profile from '../../assets/images/formal.jpg'
 import { useContactContext } from '../../context/ContactContext';
 import { useServiceContext } from '../../context/ServiceContext';
+import { useAdminContext } from '../../context/AdminContext';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -67,6 +68,7 @@ export default function PrimarySearchAppBar() {
 
     const { unseen } = useContactContext()
     const { unseenService } = useServiceContext()
+    const { logout } = useAdminContext()
 
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -112,7 +114,7 @@ export default function PrimarySearchAppBar() {
         >
             <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
             <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-            <MenuItem>Logout</MenuItem>
+            <MenuItem onClick={logout}>Logout</MenuItem>
         </Menu>
     );
 

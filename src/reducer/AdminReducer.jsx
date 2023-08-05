@@ -39,6 +39,15 @@ const AdminReducer = (state, action) => {
         }
     }
 
+    if(action.type === 'LOGOUT'){
+        return{
+            ...state,
+            authentication: false,
+            user: [],
+            loading: false,
+        }
+    }
+
     return state
 }
 

@@ -46,12 +46,18 @@ const AdminProvider = ( {children} ) => {
         })
     }
 
+    const logout = () => {
+        localStorage.removeItem('admin')
+
+        dispatch({type: 'LOGOUT'})
+    }
+
     useEffect(() => {
         getUser()
     }, [])
 
     return(
-        <AdminContext.Provider value={{...state, login}}>
+        <AdminContext.Provider value={{...state, login, logout}}>
             {children}
         </AdminContext.Provider>
     )

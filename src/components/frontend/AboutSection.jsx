@@ -1,5 +1,6 @@
 import React from 'react'
 import { useAboutContext } from '../../context/AboutContext'
+import CountUp from 'react-countup';
 
 const AboutSection = () => {
     const { about } = useAboutContext()
@@ -10,7 +11,7 @@ const AboutSection = () => {
                 about.map((about, index) => {
                     return(
                         <div key={index} className="about-card my-2">
-                            <span>{about.number}+</span>
+                            <span><CountUp end={about.number} delay={5} />+</span>
                             <span>{about.title}</span>
                         </div>
                     )

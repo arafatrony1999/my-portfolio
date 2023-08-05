@@ -1,12 +1,17 @@
 import { NavLink } from 'react-router-dom'
-import { FaAssistiveListeningSystems, FaBell, FaCode, FaDesktop, FaEnvelope, FaMoneyBillAlt, FaPencilAlt, FaStar, FaThList, FaUser, FaAdn, FaGlobe } from "react-icons/fa";
+import { FaAssistiveListeningSystems, FaBell, FaCode, FaDesktop, FaEnvelope, FaMoneyBillAlt, FaPencilAlt, FaStar, FaThList, FaUser, FaAdn, FaGlobe, FaRegIdCard } from "react-icons/fa";
 import { MDBAccordion, MDBAccordionItem } from 'mdb-react-ui-kit';
 import { useContactContext } from '../../context/ContactContext';
 import { useServiceContext } from '../../context/ServiceContext';
+import { useSubscriberContext } from '../../context/SubscriberContext';
+import { BsBoxArrowRight } from 'react-icons/bs';
+import { useAdminContext } from '../../context/AdminContext';
 
 const SIDEBAR = () => {
     const { unseen } = useContactContext()
     const { unseenService } = useServiceContext()
+    const { unseenSubscriber } = useSubscriberContext()
+    const { logout } = useAdminContext()
 
     return (
         <div className='side-bar'>
@@ -232,6 +237,31 @@ const SIDEBAR = () => {
                                 { unseenService }
                             </div>
                         }
+                    </NavLink>
+                    
+                    <NavLink to='subscribers'>
+                        <div className='sidebar-icon'>
+                            <FaRegIdCard />
+                        </div>
+                        <div className='sidebar-name'>Subscribers</div>
+                        {
+                            unseenSubscriber !== 0 &&
+                            <div className="contact-badge" style={{marginLeft: 'auto', marginRight: '10px', background: 'red'}}>
+                                { unseenSubscriber }
+                            </div>
+                        }
+                    </NavLink>
+                </li>
+            </ul>
+
+            <div className="side-menu-title">Account</div>
+            <ul>
+                <li>
+                    <NavLink onClick={logout}>
+                        <div className='sidebar-icon'>
+                            <BsBoxArrowRight />
+                        </div>
+                        <div className='sidebar-name'>Logout</div>
                     </NavLink>
                 </li>
             </ul>

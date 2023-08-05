@@ -60,6 +60,7 @@ import ServicesPage from '../pages/frontend/ServicesPage';
 import ReviewsPage from '../pages/frontend/ReviewsPage';
 import PricingPage from '../pages/frontend/PricingPage';
 import ContactPage from '../pages/frontend/ContactPage';
+import Subscribers from '../pages/admin/Subscribers/Subscribers';
 
 const Index = () => {
     return (
@@ -125,6 +126,7 @@ const Index = () => {
 
                         <Route path='contacts' element={<Contacts />} />
                         <Route path='service_requests' element={<Services />} />
+                        <Route path='subscribers' element={<Subscribers />} />
                     </Route>
                 </Routes>
             </HashRouter>

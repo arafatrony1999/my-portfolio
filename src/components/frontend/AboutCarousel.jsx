@@ -8,8 +8,11 @@ import ad7 from '../../assets/images/ad7.png'
 import ad8 from '../../assets/images/ad8.png'
 import ad9 from '../../assets/images/ad9.png'
 import ad10 from '../../assets/images/ad10.png'
+import { useExperienceContext } from "../../context/ExperienceContext";
 
 const AboutCarousel = () => {
+    const { experience } = useExperienceContext()
+
     var settings = {
         dots: false,
         infinite: true,
@@ -50,6 +53,15 @@ const AboutCarousel = () => {
     return (
         <div style={{height: '100px'}} className="about-carousel w-100 overflow-hidden py-2">
             <Slider {...settings}>
+                {
+                    experience.map((experience, index) => {
+                        return(
+                            <div key={index}>
+                                <img src={experience.image} alt="" />
+                            </div>
+                        )
+                    })
+                }
                 <div>
                     <img src={ad1} alt="" />
                 </div>

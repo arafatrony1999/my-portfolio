@@ -13,7 +13,7 @@ const HireMeAdd = () => {
                 </div>
                 <div className="col-12 col-md-10 m-auto">
                     <h5 className='mb-3 w-100 text-center text-lg-start py-3 py-md-0'>Do you want me to develop a website for you?</h5>
-                    <Link to='/get_service' className="rounded white-btn d-inline-block py-1 px-3 text-center">Yes, I want Arafat to develop my website</Link>
+                    <Link to='/get_service' className="rounded white-btn d-inline-block py-1 px-3 text-center d-block d-md-inline">Yes, I want Arafat to develop my website</Link>
                 </div>
             </div>
         </div>

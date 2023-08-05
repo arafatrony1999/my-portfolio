@@ -4,7 +4,7 @@ import PageTitle from '../../components/frontend/PageTitle'
 import HomepageIntro from '../../components/frontend/HomepageIntro'
 import IntroCarousel from '../../components/frontend/IntroCarousel'
 import IntroBtns from '../../components/frontend/IntroBtns'
-import AboutCarousel from '../../components/frontend/AboutCarousel'
+// import AboutCarousel from '../../components/frontend/AboutCarousel'
 import BigText from '../../components/frontend/BigText'
 import AboutSection from '../../components/frontend/AboutSection'
 import Hr from '../../components/frontend/Hr'
@@ -26,7 +26,7 @@ const HomePage = () => {
             <HomepageIntro />
             <IntroCarousel />
             <IntroBtns />
-            <AboutCarousel />
+            {/* <AboutCarousel /> */}
             <BigText big='ABOUT' normal='ABOUT' colored='ME' />
             <AboutSection />
             <Hr />

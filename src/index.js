@@ -13,6 +13,7 @@ import { ExperienceProvider } from './context/ExperienceContext';
 import { ServiceProvider } from './context/ServiceContext';
 import { AboutProvider } from './context/AboutContext';
 import { AdminProvider } from './context/AdminContext';
+import { SubscriberProvider } from './context/SubscriberContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -29,7 +30,9 @@ root.render(
                     <PricingProvider>
                       <ExperienceProvider>
                         <AboutProvider>
-                          <App />
+                          <SubscriberProvider>
+                            <App />
+                          </SubscriberProvider>
                         </AboutProvider>
                       </ExperienceProvider>
                     </PricingProvider>
