@@ -61,6 +61,8 @@ import ReviewsPage from '../pages/frontend/ReviewsPage';
 import PricingPage from '../pages/frontend/PricingPage';
 import ContactPage from '../pages/frontend/ContactPage';
 import Subscribers from '../pages/admin/Subscribers/Subscribers';
+import NoPage from '../pages/NoPage';
+import ScrollToTop from '../components/frontend/ScrollToTop';
 
 const Index = () => {
     return (
@@ -69,6 +71,7 @@ const Index = () => {
 
             <HashRouter>
                 <Routes>
+                    <ScrollToTop />
                     <Route path='/' element={<MasterLayoutFrontEnd />} >
                         <Route index element={<HomePageFrontEnd />} />
 
@@ -128,6 +131,8 @@ const Index = () => {
                         <Route path='service_requests' element={<Services />} />
                         <Route path='subscribers' element={<Subscribers />} />
                     </Route>
+
+                    <Route path='*' element={<NoPage />} />
                 </Routes>
             </HashRouter>
         </>

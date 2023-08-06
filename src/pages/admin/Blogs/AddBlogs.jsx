@@ -41,7 +41,7 @@ const AddBlogs = () => {
                 setDescription('')
                 setMetaDescription('')
                 
-                toast.success('Project added successfully!', {
+                toast.success('Blog added successfully!', {
                     position: "top-right",
                     autoClose: 5000,
                     hideProgressBar: false,
@@ -66,6 +66,7 @@ const AddBlogs = () => {
     const setSelectedCategory = (item) => {
         setCategory(item)
     }
+
 
     const editorConfiguration = {
         toolbar: {

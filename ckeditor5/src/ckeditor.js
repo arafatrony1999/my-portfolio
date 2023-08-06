@@ -83,7 +83,7 @@ Editor.builtinPlugins = [
 	TableToolbar,
 	TextTransformation
 ];
-
+Editor.extraPlugins = 'codesnippet';
 // Editor configuration.
 Editor.defaultConfig = {
 	toolbar: {

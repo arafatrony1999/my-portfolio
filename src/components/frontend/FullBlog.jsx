@@ -1,4 +1,3 @@
-import React from 'react'
 import formal from '../../assets/images/formal.jpg'
 import { FaFacebookF, FaLinkedinIn, FaCalendarAlt } from "react-icons/fa";
 import { BsEnvelope, BsTwitter, BsWhatsapp, BsBarChartFill } from "react-icons/bs";

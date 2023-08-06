@@ -4,7 +4,7 @@ import { FaLock, FaUserAlt, FaUserCircle } from 'react-icons/fa'
 import { useAdminContext } from '../../context/AdminContext'
 
 const Login = () => {
-    const { login } = useAdminContext()
+    const { login, wrong } = useAdminContext()
 
     const [user, setUser] = useState('')
     const [password, setPassword] = useState('')
@@ -51,6 +51,11 @@ const Login = () => {
                                 </div>
                                 <input type="password" onChange={ (e) => setPassword(e.target.value) } className="form-control" placeholder="Password" />
                             </div>
+                            
+                            {
+                                wrong && 
+                                <p className='text-danger'>Wrong Credentials!</p>
+                            }
                             
                             <div className="message">
                                 <div>
