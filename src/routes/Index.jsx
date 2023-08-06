@@ -67,11 +67,11 @@ import ScrollToTop from '../components/frontend/ScrollToTop';
 const Index = () => {
     return (
         <>
-            <ToastContainer />
-
             <HashRouter>
+                <ToastContainer />
+                <ScrollToTop />
+
                 <Routes>
-                    <ScrollToTop />
                     <Route path='/' element={<MasterLayoutFrontEnd />} >
                         <Route index element={<HomePageFrontEnd />} />
 
