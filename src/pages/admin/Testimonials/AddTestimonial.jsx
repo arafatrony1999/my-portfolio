@@ -6,6 +6,9 @@ import { toast } from 'react-toastify'
 import { useTestimonialContext } from '../../../context/TestimonialContext'
 
 const AddTestimonial = () => {
+    const [btnText, setBtnText] = useState('Submit')
+    const [loading, setLoading] = useState(false)
+
     const { getTestimonials } = useTestimonialContext()
 
     const [name, setName] = useState('')
@@ -21,6 +24,9 @@ const AddTestimonial = () => {
 
     const onSubmit = (e) => {
         e.preventDefault()
+
+        setBtnText('Loading...')
+        setLoading(true)
 
         const formData = new FormData()
 
@@ -60,12 +66,17 @@ const AddTestimonial = () => {
                 })
 
                 getTestimonials()
-            }else{
 
+                setBtnText('Submit')
+                setLoading(false)
+            }else{
+                setBtnText('Submit')
+                setLoading(false)
             }
         })
         .catch((error) => {
-
+            setBtnText('Submit')
+            setLoading(false)
         })
     }
     return (
@@ -116,8 +127,8 @@ const AddTestimonial = () => {
                     <Form.Control value={description} onChange={ (e) => setDescription(e.target.value) } as="textarea" rows={3} placeholder='Write full review here...' />
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
-                    Submit
+                <Button variant="primary" type="submit" disabled={loading ? true : false}>
+                    {btnText}
                 </Button>
             </Form>
         </div>

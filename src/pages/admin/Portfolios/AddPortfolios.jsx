@@ -11,6 +11,9 @@ import Editor from 'ckeditor5-custom-build/build/ckeditor';
 import { CKEditor } from '@ckeditor/ckeditor5-react'
 
 const AddPortfolios = () => {
+    const [btnText, setBtnText] = useState('Submit')
+    const [loading, setLoading] = useState(false)
+
     const { getPortfolios } = usePortfolioContext();
     const { categories } = useCategoryContext()
 
@@ -27,6 +30,9 @@ const AddPortfolios = () => {
 
     const onSubmit = (e) => {
         e.preventDefault()
+
+        setBtnText('Loading...')
+        setLoading(true)
 
         const formData = new FormData()
 
@@ -60,12 +66,17 @@ const AddPortfolios = () => {
                 });
 
                 getPortfolios()
+                
+                setBtnText('Submit')
+                setLoading(false)
             }else{
-
+                setBtnText('Submit')
+                setLoading(false)
             }
         })
         .catch((error) => {
-
+            setBtnText('Submit')
+            setLoading(false)
         })
     }
 
@@ -149,7 +160,7 @@ const AddPortfolios = () => {
                     <CKEditor
                         editor={ Editor }
                         config={ editorConfiguration }
-                        data=""
+                        data={ description }
                         onChange={ ( event, editor ) => {
                             const data = editor.getData();
                             setDescription(data)
@@ -157,8 +168,8 @@ const AddPortfolios = () => {
                     />
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
-                    Submit
+                <Button variant="primary" type="submit" disabled={loading ? true : false}>
+                    {btnText}
                 </Button>
             </Form>
         </div>

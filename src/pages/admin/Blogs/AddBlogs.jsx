@@ -12,6 +12,9 @@ import { useBlogContext } from '../../../context/BlogContext';
 
 
 const AddBlogs = () => {
+    const [btnText, setBtnText] = useState('Submit')
+    const [loading, setLoading] = useState(false)
+
     const { categories } = useCategoryContext()
     const { getBlogs } = useBlogContext()
 
@@ -23,6 +26,9 @@ const AddBlogs = () => {
 
     const onSubmit = (e) => {
         e.preventDefault()
+
+        setBtnText('Loading...')
+        setLoading(true)
 
         const formData = new FormData()
         formData.append('title', title)
@@ -54,12 +60,16 @@ const AddBlogs = () => {
 
                 getBlogs()
 
+                setBtnText('Submit')
+                setLoading(false)
             }else{
-
+                setBtnText('Submit')
+                setLoading(false)
             }
         })
         .catch((error) => {
-
+            setBtnText('Submit')
+            setLoading(false)
         })
     }
 
@@ -138,7 +148,7 @@ const AddBlogs = () => {
                     <CKEditor
                         editor={ Editor }
                         config={ editorConfiguration }
-                        data=""
+                        data={description}
                         onChange={ ( event, editor ) => {
                             const data = editor.getData();
                             setDescription(data)
@@ -150,8 +160,8 @@ const AddBlogs = () => {
                     <Form.Control value={metaDescription} onChange={ (e) => setMetaDescription(e.target.value) } as="textarea" rows={3} placeholder='Write meta description here...' />
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
-                    Submit
+                <Button variant="primary" type="submit" disabled={loading ? true : false}>
+                    {btnText}
                 </Button>
             </Form>
         </div>

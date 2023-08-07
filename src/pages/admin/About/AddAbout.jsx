@@ -6,6 +6,9 @@ import { useAboutContext } from '../../../context/AboutContext';
 import { toast } from 'react-toastify'
 
 const AddAbout = () => {
+    const [btnText, setBtnText] = useState('Submit')
+    const [loading, setLoading] = useState(false)
+
     const { getAbout } = useAboutContext();
 
     const [title, setTitle] = useState('')
@@ -14,6 +17,9 @@ const AddAbout = () => {
 
     const onSubmit = (e) => {
         e.preventDefault()
+
+        setBtnText('Loading...')
+        setLoading(true)
 
         const formData = new FormData()
 
@@ -39,12 +45,17 @@ const AddAbout = () => {
                 });
 
                 getAbout()
+                
+                setBtnText('Submit')
+                setLoading(false)
             }else{
-
+                setBtnText('Submit')
+                setLoading(false)
             }
         })
         .catch((error) => {
-
+            setBtnText('Submit')
+            setLoading(false)
         })
     }
 
@@ -64,8 +75,8 @@ const AddAbout = () => {
                     <Form.Control value={number} onChange={ (e) => setNumber(e.target.value) } type="text" placeholder="Enter About Number" />
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
-                    Submit
+                <Button variant="primary" type="submit" disabled={loading ? true : false}>
+                    {btnText}
                 </Button>
             </Form>
         </div>

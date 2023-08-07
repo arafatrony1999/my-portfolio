@@ -6,6 +6,9 @@ import { useCategoryContext } from '../../../context/CategoryContext';
 import { toast } from 'react-toastify'
 
 const AddCategories = () => {
+    const [btnText, setBtnText] = useState('Submit')
+    const [loading, setLoading] = useState(false)
+
     const { getCategories } = useCategoryContext();
 
     const [name, setName] = useState('')
@@ -14,6 +17,9 @@ const AddCategories = () => {
 
     const onSubmit = (e) => {
         e.preventDefault()
+
+        setBtnText('Loading...')
+        setLoading(true)
 
         const formData = new FormData()
 
@@ -39,12 +45,17 @@ const AddCategories = () => {
                 });
 
                 getCategories()
-            }else{
 
+                setBtnText('Submit')
+                setLoading(false)
+            }else{
+                setBtnText('Submit')
+                setLoading(false)
             }
         })
         .catch((error) => {
-
+            setBtnText('Submit')
+            setLoading(false)
         })
     }
     return (
@@ -56,7 +67,7 @@ const AddCategories = () => {
             <Form className='my-5' onSubmit={onSubmit}>
                 <Form.Group className="mb-3">
                     <Form.Label>Enter Category Name</Form.Label>
-                    <Form.Control onChange={ (e) => setName(e.target.value)} type="text" placeholder="Enter Category Name" />
+                    <Form.Control value={name} onChange={ (e) => setName(e.target.value)} type="text" placeholder="Enter Category Name" />
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Select Category Display Image</Form.Label>
@@ -64,14 +75,15 @@ const AddCategories = () => {
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Select Category type</Form.Label>
-                    <Form.Select defaultValue={type} onChange={ (e) => setType(e.target.value)} aria-label="Default select example">
+                    <Form.Select value={type} onChange={ (e) => setType(e.target.value)} aria-label="Default select example">
                         <option>Select Category Type</option>
                         <option value="website">Website</option>
                         <option value="blog">Blog</option>
                     </Form.Select>
                 </Form.Group>
-                <Button variant="primary" type="submit">
-                    Submit
+
+                <Button variant="primary" type="submit" disabled={loading ? true : false}>
+                    {btnText}
                 </Button>
             </Form>
         </div>

@@ -10,6 +10,9 @@ import { CKEditor } from '@ckeditor/ckeditor5-react'
 import { usePricingContext  } from '../../../context/PricingContext';
 
 const AddPricing = () => {
+    const [btnText, setBtnText] = useState('Submit')
+    const [loading, setLoading] = useState(false)
+
     const { getPricing } = usePricingContext()
     
     const [icon, setIcon] = useState('')
@@ -20,6 +23,9 @@ const AddPricing = () => {
 
     const onSubmit = (e) => {
         e.preventDefault()
+
+        setBtnText('Loading...')
+        setLoading(true)
 
         const formData = new FormData()
 
@@ -51,12 +57,17 @@ const AddPricing = () => {
                 });
 
                 getPricing()
+                
+                setBtnText('Submit')
+                setLoading(false)
             }else{
-
+                setBtnText('Submit')
+                setLoading(false)
             }
         })
         .catch((error) => {
-
+            setBtnText('Submit')
+            setLoading(false)
         })
     }
 
@@ -124,7 +135,7 @@ const AddPricing = () => {
                     <CKEditor
                         editor={ Editor }
                         config={ editorConfiguration }
-                        data={description}
+                        data={ description }
                         onChange={ ( event, editor ) => {
                             const data = editor.getData();
                             setDescription(data)
@@ -132,8 +143,8 @@ const AddPricing = () => {
                     />
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
-                    Submit
+                <Button variant="primary" type="submit" disabled={loading ? true : false}>
+                    {btnText}
                 </Button>
             </Form>
         </div>
