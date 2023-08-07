@@ -25,7 +25,7 @@ const BlogReducer = (state, action) => {
         const { search, blogs } = action.payload;
         
         let result = blogs.filter(single_data => {
-            return single_data.name.toLowerCase().match(search.toLowerCase())
+            return single_data.title.toLowerCase().match(search.toLowerCase())
         });
 
         return{

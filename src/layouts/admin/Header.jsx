@@ -68,7 +68,7 @@ export default function PrimarySearchAppBar() {
 
     const { unseen } = useContactContext()
     const { unseenService } = useServiceContext()
-    const { logout } = useAdminContext()
+    const { logout, responsiveMenu } = useAdminContext()
 
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -180,6 +180,7 @@ export default function PrimarySearchAppBar() {
                         color="inherit"
                         aria-label="open drawer"
                         sx={{ mr: 2 }}
+                        onClick={responsiveMenu}
                     >
                         <MenuIcon />
                     </IconButton>

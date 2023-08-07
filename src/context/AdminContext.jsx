@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer, useState } from "react";
 import reducer from '../reducer/AdminReducer'
 import axios from '../helper/Axios'
 
@@ -13,6 +13,8 @@ const initialState = {
 
 const AdminProvider = ( {children} ) => {
     const [state, dispatch] = useReducer(reducer, initialState)
+
+    const [menuOpen, setMenuOpen] = useState(false)
 
     const getUser = () => {
         dispatch({type: 'INITIAL_STATE'})
@@ -48,6 +50,14 @@ const AdminProvider = ( {children} ) => {
         })
     }
 
+    const responsiveMenu = () => {
+        setMenuOpen(!menuOpen)
+    }
+
+    const removeSidebar = () => {
+        setMenuOpen(false)
+    }
+
     const logout = () => {
         localStorage.removeItem('admin')
 
@@ -59,7 +69,7 @@ const AdminProvider = ( {children} ) => {
     }, [])
 
     return(
-        <AdminContext.Provider value={{...state, login, logout}}>
+        <AdminContext.Provider value={{...state, login, logout, responsiveMenu, menuOpen, removeSidebar}}>
             {children}
         </AdminContext.Provider>
     )

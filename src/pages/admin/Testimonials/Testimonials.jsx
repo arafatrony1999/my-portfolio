@@ -98,7 +98,7 @@ const Testimonials = () => {
                     progressPending={loading && 'Loading...'}
                     title='Testimonials'
                     fixedHeader
-                    fixedHeaderScrollHeight='50%'
+                    fixedHeaderScrollHeight='75%'
                     selectableRows
                     selectableRowsHighlight
                     highlightOnHover

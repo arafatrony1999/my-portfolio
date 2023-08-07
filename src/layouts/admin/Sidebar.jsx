@@ -11,21 +11,21 @@ const SIDEBAR = () => {
     const { unseen } = useContactContext()
     const { unseenService } = useServiceContext()
     const { unseenSubscriber } = useSubscriberContext()
-    const { logout } = useAdminContext()
+    const { logout, menuOpen, removeSidebar } = useAdminContext()
 
     return (
-        <div className='side-bar'>
+        <div className={ menuOpen ? 'side-bar active' : 'side-bar'}>
             <div className="side-menu-title">Menu</div>
             <ul>
                 <li>
-                    <NavLink to=''>
+                    <NavLink onClick={removeSidebar} to=''>
                         <div className='sidebar-icon'>
                             <FaUser />
                         </div>
                         <div className='sidebar-name'>Dashboard</div>
                     </NavLink>
                     
-                    <NavLink to='/'>
+                    <NavLink onClick={removeSidebar} to='/'>
                         <div className='sidebar-icon'>
                             <FaGlobe />
                         </div>
@@ -50,10 +50,10 @@ const SIDEBAR = () => {
                             <div className="btn-toggle-items">
                                 <div className="btn-toggle-left"></div>
                                 <div className="btn-toggle-right">
-                                    <NavLink to='portfolios'>
+                                    <NavLink onClick={removeSidebar} to='portfolios'>
                                         <div className='sidebar-name'>All Portfolios</div>
                                     </NavLink>
-                                    <NavLink to='portfolios/add'>
+                                    <NavLink onClick={removeSidebar} to='portfolios/add'>
                                         <div className='sidebar-name'>Add Portfolio</div>
                                     </NavLink>
                                 </div>
@@ -71,10 +71,10 @@ const SIDEBAR = () => {
                             <div className="btn-toggle-items">
                                 <div className="btn-toggle-left"></div>
                                 <div className="btn-toggle-right">
-                                    <NavLink to='categories'>
+                                    <NavLink onClick={removeSidebar} to='categories'>
                                         <div className='sidebar-name'>All Categories</div>
                                     </NavLink>
-                                    <NavLink to='categories/add'>
+                                    <NavLink onClick={removeSidebar} to='categories/add'>
                                         <div className='sidebar-name'>Add Categories</div>
                                     </NavLink>
                                 </div>
@@ -92,10 +92,10 @@ const SIDEBAR = () => {
                             <div className="btn-toggle-items">
                                 <div className="btn-toggle-left"></div>
                                 <div className="btn-toggle-right">
-                                    <NavLink to='skills'>
+                                    <NavLink onClick={removeSidebar} to='skills'>
                                         <div className='sidebar-name'>All Skills</div>
                                     </NavLink>
-                                    <NavLink to='skills/add'>
+                                    <NavLink onClick={removeSidebar} to='skills/add'>
                                         <div className='sidebar-name'>Add Skill</div>
                                     </NavLink>
                                 </div>
@@ -113,10 +113,10 @@ const SIDEBAR = () => {
                             <div className="btn-toggle-items">
                                 <div className="btn-toggle-left"></div>
                                 <div className="btn-toggle-right">
-                                    <NavLink to='blogs'>
+                                    <NavLink onClick={removeSidebar} to='blogs'>
                                         <div className='sidebar-name'>All Blogs</div>
                                     </NavLink>
-                                    <NavLink to='blogs/add'>
+                                    <NavLink onClick={removeSidebar} to='blogs/add'>
                                         <div className='sidebar-name'>Add Blogs</div>
                                     </NavLink>
                                 </div>
@@ -134,10 +134,10 @@ const SIDEBAR = () => {
                             <div className="btn-toggle-items">
                                 <div className="btn-toggle-left"></div>
                                 <div className="btn-toggle-right">
-                                    <NavLink to='testimonials'>
+                                    <NavLink onClick={removeSidebar} to='testimonials'>
                                         <div className='sidebar-name'>All Testimonials</div>
                                     </NavLink>
-                                    <NavLink to='testimonials/add'>
+                                    <NavLink onClick={removeSidebar} to='testimonials/add'>
                                         <div className='sidebar-name'>Add Testimonials</div>
                                     </NavLink>
                                 </div>
@@ -155,10 +155,10 @@ const SIDEBAR = () => {
                             <div className="btn-toggle-items">
                                 <div className="btn-toggle-left"></div>
                                 <div className="btn-toggle-right">
-                                    <NavLink to='pricing'>
+                                    <NavLink onClick={removeSidebar} to='pricing'>
                                         <div className='sidebar-name'>All Pricing list</div>
                                     </NavLink>
-                                    <NavLink to='pricing/add'>
+                                    <NavLink onClick={removeSidebar} to='pricing/add'>
                                         <div className='sidebar-name'>Add Pricing</div>
                                     </NavLink>
                                 </div>
@@ -176,10 +176,10 @@ const SIDEBAR = () => {
                             <div className="btn-toggle-items">
                                 <div className="btn-toggle-left"></div>
                                 <div className="btn-toggle-right">
-                                    <NavLink to='experience'>
+                                    <NavLink onClick={removeSidebar} to='experience'>
                                         <div className='sidebar-name'>All Experience list</div>
                                     </NavLink>
-                                    <NavLink to='experience/add'>
+                                    <NavLink onClick={removeSidebar} to='experience/add'>
                                         <div className='sidebar-name'>Add New Experience</div>
                                     </NavLink>
                                 </div>
@@ -197,10 +197,10 @@ const SIDEBAR = () => {
                             <div className="btn-toggle-items">
                                 <div className="btn-toggle-left"></div>
                                 <div className="btn-toggle-right">
-                                    <NavLink to='about'>
+                                    <NavLink onClick={removeSidebar} to='about'>
                                         <div className='sidebar-name'>All About list</div>
                                     </NavLink>
-                                    <NavLink to='about/add'>
+                                    <NavLink onClick={removeSidebar} to='about/add'>
                                         <div className='sidebar-name'>Add New About</div>
                                     </NavLink>
                                 </div>
@@ -213,7 +213,7 @@ const SIDEBAR = () => {
             <div className="side-menu-title">Notifications</div>
             <ul>
                 <li>
-                    <NavLink to='contacts'>
+                    <NavLink onClick={removeSidebar} to='contacts'>
                         <div className='sidebar-icon'>
                             <FaBell />
                         </div>
@@ -226,7 +226,7 @@ const SIDEBAR = () => {
                         }
                     </NavLink>
 
-                    <NavLink to='service_requests'>
+                    <NavLink onClick={removeSidebar} to='service_requests'>
                         <div className='sidebar-icon'>
                             <FaEnvelope />
                         </div>
@@ -239,7 +239,7 @@ const SIDEBAR = () => {
                         }
                     </NavLink>
                     
-                    <NavLink to='subscribers'>
+                    <NavLink onClick={removeSidebar} to='subscribers'>
                         <div className='sidebar-icon'>
                             <FaRegIdCard />
                         </div>

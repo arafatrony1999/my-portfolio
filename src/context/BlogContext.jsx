@@ -94,7 +94,7 @@ const BlogProvider = ( {children} ) => {
     }
 
     const setFilteredBlogs = (search) => {
-        dispatch({type: 'SET_FILTERED_Blogs', payload: {search: search, blogs: state.blogs}})
+        dispatch({type: 'SET_FILTERED_BLOGS', payload: {search: search, blogs: state.blogs}})
     }
 
     useEffect(() => {

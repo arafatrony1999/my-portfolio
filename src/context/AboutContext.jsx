@@ -25,7 +25,7 @@ const AboutProvider = ( {children} ) => {
     }
 
     const setFilteredAbout = (search) => {
-        dispatch({type: 'SET_FILTERED_SKILLS', payload: {search: search, skills: state.skills}})
+        dispatch({type: 'SET_FILTERED_ABOUT', payload: {search: search, about: state.about}})
     }
 
     useEffect(() => {

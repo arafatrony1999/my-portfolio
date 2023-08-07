@@ -49,10 +49,6 @@ const Portfolios = () => {
             sortable: true
         },
         {
-            name: 'Description',
-            selector: row => <div dangerouslySetInnerHTML={{__html: row.description}} />
-        },
-        {
             name: 'Action',
             cell: row => <>
                 <Link to={'edit?id='+row.id} className='btn btn-primary'>
@@ -76,7 +72,7 @@ const Portfolios = () => {
                     progressPending={loading && 'Loading...'}
                     title='Portfolios'
                     fixedHeader
-                    fixedHeaderScrollHeight='50%'
+                    fixedHeaderScrollHeight='75%'
                     selectableRows
                     selectableRowsHighlight
                     highlightOnHover
@@ -85,7 +81,7 @@ const Portfolios = () => {
                         <input type='search' value={search} onChange={(e) => setSearch(e.target.value)} placeholder='Search' className='w-25 form-group' />
                     }
                     actions={
-                        <Link to='add' className='btn btn-primary'>ADD NEW LINK</Link>
+                        <Link to='add' className='btn btn-primary'>ADD NEW PORTFOLIO</Link>
                     }
                 />
             </div>

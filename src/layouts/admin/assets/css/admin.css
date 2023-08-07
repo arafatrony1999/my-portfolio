@@ -16,3 +16,14 @@
 .ck-content{
     min-height: 300px;
 }
+
+.sc-ikkxIA.clxJSV{
+    padding: 10px 0;
+}
+
+@media(max-width: 991px){
+    .sc-ikkxIA.clxJSV input{
+        width: 100% !important;
+        margin: 5px 0;
+    }
+}

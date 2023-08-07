@@ -87,7 +87,7 @@ const Blogs = () => {
                     progressPending={loading && 'Loading...'}
                     title='Blogs'
                     fixedHeader
-                    fixedHeaderScrollHeight='50%'
+                    fixedHeaderScrollHeight='75%'
                     selectableRows
                     selectableRowsHighlight
                     highlightOnHover

@@ -96,7 +96,7 @@ const Experience = () => {
                     progressPending={loading && 'Loading...'}
                     title='Experience'
                     fixedHeader
-                    fixedHeaderScrollHeight='50%'
+                    fixedHeaderScrollHeight='75%'
                     selectableRows
                     selectableRowsHighlight
                     highlightOnHover

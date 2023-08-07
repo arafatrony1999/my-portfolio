@@ -76,7 +76,7 @@ const Subscribers = () => {
                     progressPending={loading && 'Loading...'}
                     title='Subscribers'
                     fixedHeader
-                    fixedHeaderScrollHeight='50%'
+                    fixedHeaderScrollHeight='75%'
                     selectableRows
                     selectableRowsHighlight
                     highlightOnHover

@@ -76,7 +76,7 @@ const Pricing = () => {
                     progressPending={loading && 'Loading...'}
                     title='Pricing'
                     fixedHeader
-                    fixedHeaderScrollHeight='50%'
+                    fixedHeaderScrollHeight='75%'
                     selectableRows
                     selectableRowsHighlight
                     highlightOnHover

@@ -83,7 +83,7 @@ const Contacts = () => {
                     progressPending={loading && 'Loading...'}
                     title='Contacts'
                     fixedHeader
-                    fixedHeaderScrollHeight='50%'
+                    fixedHeaderScrollHeight='75%'
                     selectableRows
                     selectableRowsHighlight
                     highlightOnHover

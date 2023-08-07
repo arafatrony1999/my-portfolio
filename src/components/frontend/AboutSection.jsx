@@ -11,7 +11,7 @@ const AboutSection = () => {
                 about.map((about, index) => {
                     return(
                         <div key={index} className="about-card my-2">
-                            <span><CountUp end={about.number} delay={5} />+</span>
+                            <span><CountUp end={about.number} delay={2} />+</span>
                             <span>{about.title}</span>
                         </div>
                     )
