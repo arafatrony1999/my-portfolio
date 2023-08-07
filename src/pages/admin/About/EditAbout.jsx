@@ -9,6 +9,9 @@ import { toast } from 'react-toastify';
 const EditAbout = () => {
     const [id, setId] = useSearchParams()
 
+    const [btnText, setBtnText] = useState('Submit')
+    const [loading, setLoading] = useState(false)
+
     const { getAbout } = useAboutContext();
 
     const [title, setTitle] = useState('')
@@ -31,6 +34,9 @@ const EditAbout = () => {
     const onSubmit = (e) => {
         e.preventDefault()
 
+        setBtnText('Loading...')
+        setLoading(true)
+
         const formData = new FormData()
 
         formData.append('id', id.get('id'))
@@ -52,10 +58,17 @@ const EditAbout = () => {
                 });
 
                 getAbout()
+                
+                setBtnText('Submit')
+                setLoading(false)
+            }else{
+                setBtnText('Submit')
+                setLoading(false)
             }
         })
         .catch((error) => {
-
+            setBtnText('Submit')
+            setLoading(false)
         })
     }
     
@@ -76,8 +89,8 @@ const EditAbout = () => {
                     <Form.Control defaultValue={number} onChange={ (e) => setNumber(e.target.value) } type="text" placeholder="Enter About Number" />
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
-                    Submit
+                <Button variant="primary" type="submit" disabled={loading ? true : false}>
+                    {btnText}
                 </Button>
             </Form>
         </div>

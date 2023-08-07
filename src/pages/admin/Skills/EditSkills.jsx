@@ -8,6 +8,10 @@ import { useSkillContext } from '../../../context/SkillContext';
 
 const EditSkills = () => {
     const [id, setId] = useSearchParams()
+
+    const [btnText, setBtnText] = useState('Submit')
+    const [loading, setLoading] = useState(false)
+
     const { getSkills } = useSkillContext();
 
     const [name, setName] = useState('')
@@ -28,6 +32,9 @@ const EditSkills = () => {
 
     const onSubmit = (e) => {
         e.preventDefault()
+
+        setBtnText('Loading...')
+        setLoading(true)
 
         const formData = new FormData()
 
@@ -50,12 +57,17 @@ const EditSkills = () => {
                 });
 
                 getSkills()
-            }else{
 
+                setBtnText('Submit')
+                setLoading(false)
+            }else{
+                setBtnText('Submit')
+                setLoading(false)
             }
         })
         .catch((error) => {
-
+            setBtnText('Submit')
+            setLoading(false)
         })
     }
     return (
@@ -74,8 +86,8 @@ const EditSkills = () => {
                     <Form.Control defaultValue={percent} onChange={ (e) => setPercent(e.target.value)} type="text" placeholder="Enter Skill Percent" />
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
-                    Submit
+                <Button variant="primary" type="submit" disabled={loading ? true : false}>
+                    {btnText}
                 </Button>
             </Form>
         </div>

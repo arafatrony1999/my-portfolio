@@ -14,6 +14,9 @@ import { CKEditor } from '@ckeditor/ckeditor5-react'
 const EditPortfolios = () => {
     const [id, setId] = useSearchParams()
 
+    const [btnText, setBtnText] = useState('Submit')
+    const [loading, setLoading] = useState(false)
+
     const { getPortfolios } = usePortfolioContext();
     const { categories } = useCategoryContext();
 
@@ -48,6 +51,9 @@ const EditPortfolios = () => {
     const onSubmit = (e) => {
         e.preventDefault()
 
+        setBtnText('Loading...')
+        setLoading(true)
+
         const formData = new FormData()
 
         formData.append('id', id.get('id'))
@@ -72,6 +78,9 @@ const EditPortfolios = () => {
                     theme: "colored",
                 });
                 getPortfolios()
+                
+                setBtnText('Submit')
+                setLoading(false)
             }else if(res.data.exist === 1){
                 toast.warn('Same project already exist!', {
                     position: "top-right",
@@ -83,10 +92,17 @@ const EditPortfolios = () => {
                     progress: undefined,
                     theme: "colored",
                 });
+                
+                setBtnText('Submit')
+                setLoading(false)
+            }else{
+                setBtnText('Submit')
+                setLoading(false)
             }
         })
         .catch((error) => {
-
+            setBtnText('Submit')
+            setLoading(false)
         })
     }
     
@@ -175,8 +191,8 @@ const EditPortfolios = () => {
                     />
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
-                    Submit
+                <Button variant="primary" type="submit" disabled={loading ? true : false}>
+                    {btnText}
                 </Button>
             </Form>
         </div>

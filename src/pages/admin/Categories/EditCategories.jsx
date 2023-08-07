@@ -7,6 +7,9 @@ import { useCategoryContext } from '../../../context/CategoryContext';
 import { toast } from 'react-toastify'
 
 const EditCategories = () => {
+    const [btnText, setBtnText] = useState('Submit')
+    const [loading, setLoading] = useState(false)
+
     const [id, setId] = useSearchParams()
     const { getCategories } = useCategoryContext();
 
@@ -31,6 +34,9 @@ const EditCategories = () => {
     const onSubmit = (e) => {
         e.preventDefault()
 
+        setBtnText('Loading...')
+        setLoading(true)
+
         const formData = new FormData()
 
         formData.append('id', id.get('id'))
@@ -53,12 +59,17 @@ const EditCategories = () => {
                 });
 
                 getCategories()
-            }else{
 
+                setBtnText('Submit')
+                setLoading(false)
+            }else{
+                setBtnText('Submit')
+                setLoading(false)
             }
         })
         .catch((error) => {
-
+            setBtnText('Submit')
+            setLoading(false)
         })
     }
     return (
@@ -85,8 +96,8 @@ const EditCategories = () => {
                     </Form.Select>
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
-                    Submit
+                <Button variant="primary" type="submit" disabled={loading ? true : false}>
+                    {btnText}
                 </Button>
             </Form>
         </div>

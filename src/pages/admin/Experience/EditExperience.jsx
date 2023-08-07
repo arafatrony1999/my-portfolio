@@ -8,6 +8,9 @@ import { useExperienceContext } from '../../../context/ExperienceContext';
 
 const EditExperience = () => {
     const [id, setId] = useSearchParams()
+    
+    const [btnText, setBtnText] = useState('Submit')
+    const [loading, setLoading] = useState(false)
 
     const { getExperience } = useExperienceContext()
 
@@ -44,6 +47,9 @@ const EditExperience = () => {
     const onSubmit = (e) => {
         e.preventDefault()
 
+        setBtnText('Loading...')
+        setLoading(true)
+
         const formData = new FormData()
 
         formData.append('id', id.get('id'))
@@ -72,12 +78,17 @@ const EditExperience = () => {
                 });
 
                 getExperience()
+                
+                setBtnText('Submit')
+                setLoading(false)
             }else{
-
+                setBtnText('Submit')
+                setLoading(false)
             }
         })
         .catch((error) => {
-
+            setBtnText('Submit')
+            setLoading(false)
         })
     }
 
@@ -129,8 +140,8 @@ const EditExperience = () => {
                     <Form.Control value={description} onChange={ (e) => setDescription(e.target.value)} as="textarea" rows={3} placeholder='Enter Project Description...' />
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
-                    Submit
+                <Button variant="primary" type="submit" disabled={loading ? true : false}>
+                    {btnText}
                 </Button>
             </Form>
         </div>

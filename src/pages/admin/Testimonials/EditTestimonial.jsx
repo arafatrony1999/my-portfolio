@@ -10,6 +10,10 @@ const EditTestimonial = () => {
     const { getTestimonials } = useTestimonialContext()
     const [id, setId] = useSearchParams()
 
+    const [btnText, setBtnText] = useState('Submit')
+    const [loading, setLoading] = useState(false)
+
+
     const [name, setName] = useState('')
     const [image, setImage] = useState('')
     const [company, setCompany] = useState('')
@@ -44,6 +48,9 @@ const EditTestimonial = () => {
     const onSubmit = (e) => {
         e.preventDefault()
 
+        setBtnText('Loading...')
+        setLoading(true)
+
         const formData = new FormData()
 
         formData.append('id', id.get('id'))
@@ -73,12 +80,17 @@ const EditTestimonial = () => {
                 })
 
                 getTestimonials()
+                
+                setBtnText('Submit')
+                setLoading(false)
             }else{
-
+                setBtnText('Submit')
+                setLoading(false)
             }
         })
         .catch((error) => {
-
+            setBtnText('Submit')
+            setLoading(false)
         })
     }
     return (
@@ -129,8 +141,8 @@ const EditTestimonial = () => {
                     <Form.Control value={description} onChange={ (e) => setDescription(e.target.value) } as="textarea" rows={3} placeholder='Write full review here...' />
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
-                    Submit
+                <Button variant="primary" type="submit" disabled={loading ? true : false}>
+                    {btnText}
                 </Button>
             </Form>
         </div>

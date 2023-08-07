@@ -11,12 +11,15 @@ import { usePricingContext } from '../../../context/PricingContext';
 
 const EditPricing = () => {
     const [id, setId] = useSearchParams()
-    
+
+    const [btnText, setBtnText] = useState('Submit')
+    const [loading, setLoading] = useState(false)
+
     const { getPricing } = usePricingContext()
 
     const [icon, setIcon] = useState('')
     const [title, setTitle] = useState('')
-    const [mainPrice, setMainPrice] = useState([])
+    const [mainPrice, setMainPrice] = useState('')
     const [offPrice, setOffPrice] = useState('')
     const [description, setDescription] = useState('')
 
@@ -39,6 +42,9 @@ const EditPricing = () => {
     const onSubmit = (e) => {
         e.preventDefault()
 
+        setBtnText('Loading...')
+        setLoading(true)
+
         const formData = new FormData()
 
         formData.append('id', id.get('id'))
@@ -54,7 +60,7 @@ const EditPricing = () => {
             if(res.data.status === 1){
                 setIcon('')
                 setTitle('')
-                setMainPrice([])
+                setMainPrice('')
                 setOffPrice('')
                 setDescription('')
 
@@ -71,12 +77,17 @@ const EditPricing = () => {
                 });
 
                 getPricing()
-            }else{
 
+                setBtnText('Submit')
+                setLoading(false)
+            }else{
+                setBtnText('Submit')
+                setLoading(false)
             }
         })
         .catch((error) => {
-
+            setBtnText('Submit')
+            setLoading(false)
         })
     }
     
@@ -152,8 +163,8 @@ const EditPricing = () => {
                     />
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
-                    Submit
+                <Button variant="primary" type="submit" disabled={loading ? true : false}>
+                    {btnText}
                 </Button>
             </Form>
         </div>

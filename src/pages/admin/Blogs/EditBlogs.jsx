@@ -12,6 +12,9 @@ import { useSearchParams } from 'react-router-dom';
 import { useBlogContext } from '../../../context/BlogContext';
 
 const EditBlogs = () => {
+    const [btnText, setBtnText] = useState('Submit')
+    const [loading, setLoading] = useState(false)
+    
     const { categories } = useCategoryContext()
     const { getBlogs } = useBlogContext()
 
@@ -40,6 +43,9 @@ const EditBlogs = () => {
 
     const onSubmit = (e) => {
         e.preventDefault()
+        
+        setBtnText('Loading...')
+        setLoading(true)
 
         const formData = new FormData()
         formData.append('id', id.get('id'))
@@ -66,12 +72,16 @@ const EditBlogs = () => {
 
                 getBlogs()
 
+                setBtnText('Submit')
+                setLoading(false)
             }else{
-
+                setBtnText('Submit')
+                setLoading(false)
             }
         })
         .catch((error) => {
-
+            setBtnText('Submit')
+            setLoading(false)
         })
     }
 
@@ -161,8 +171,8 @@ const EditBlogs = () => {
                     <Form.Control value={metaDescription} onChange={ (e) => setMetaDescription(e.target.value) } as="textarea" rows={3} placeholder='Write meta description here...' />
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
-                    Submit
+                <Button variant="primary" type="submit" disabled={loading ? true : false}>
+                    {btnText}
                 </Button>
             </Form>
         </div>

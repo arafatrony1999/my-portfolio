@@ -17,7 +17,7 @@ const AddPricing = () => {
     
     const [icon, setIcon] = useState('')
     const [title, setTitle] = useState('')
-    const [mainPrice, setMainPrice] = useState([])
+    const [mainPrice, setMainPrice] = useState('')
     const [offPrice, setOffPrice] = useState('')
     const [description, setDescription] = useState('')
 
