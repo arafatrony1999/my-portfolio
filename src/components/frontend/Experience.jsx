@@ -1,6 +1,7 @@
 import { FaBriefcase, FaGraduationCap } from "react-icons/fa";
 import { useExperienceContext } from '../../context/ExperienceContext'
 import DateFormat from '../../helper/DateFormat'
+import { Link } from 'react-router-dom'
 
 const Experience = () => {
     const { experience } = useExperienceContext()
@@ -28,7 +29,7 @@ const Experience = () => {
                                 </div>
                                 <div className="experience-right">
                                     <h5>
-                                        <a href='http://' target="_blank" rel="noopener noreferrer">{experience.company}</a>
+                                        <Link to={experience.site} target="_blank" rel="noopener noreferrer">{experience.company}</Link>
                                     </h5>
                                     <p>
                                         {experience.description} (<DateFormat date={experience.start} /> - {experience.end ? <DateFormat date={experience.end} /> : 'Running...'})

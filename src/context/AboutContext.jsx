@@ -22,7 +22,7 @@ const AboutProvider = ( {children} ) => {
         .catch((error) => {
 
         })
-    }
+    } 
 
     const setFilteredAbout = (search) => {
         dispatch({type: 'SET_FILTERED_ABOUT', payload: {search: search, about: state.about}})

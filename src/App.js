@@ -4,12 +4,17 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './assets/css/header.css';
 import Index from './routes/Index';
+import { HelmetProvider } from 'react-helmet-async';
+import CustomMetaTags from './layouts/frontend/CustomMetaTags';
 
 function App() {
   return (
-    <div className="App">
-      <Index />
-    </div>
+    <HelmetProvider>
+      <CustomMetaTags />
+      <div className="App">
+        <Index />
+      </div>
+    </HelmetProvider>
   );
 }
 

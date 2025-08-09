@@ -7,6 +7,7 @@ import Select from 'react-select'
 import { useSearchParams } from 'react-router-dom';
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import { BsEnvelope, BsTwitter, BsWhatsapp } from "react-icons/bs";
+import CustomMetaTags from '../../layouts/frontend/CustomMetaTags';
 
 const GetServicePage = () => {
     const { pricing } = usePricingContext()
@@ -95,6 +96,7 @@ const GetServicePage = () => {
 
     return (
         <div className='pricing-section'>
+            <CustomMetaTags title="Get a service | Arafat Rony" />
             <BigText big='SERVICE' normal='GET A ' colored='SERVICE' />
 
             <div className="container skills-section">

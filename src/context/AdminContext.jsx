@@ -15,13 +15,35 @@ const AdminProvider = ( {children} ) => {
     const [state, dispatch] = useReducer(reducer, initialState)
 
     const [menuOpen, setMenuOpen] = useState(false)
+    
+    let data = localStorage.getItem('admin')
+
+    const getAdmin = async (auth) => {
+        const formData = new FormData()
+        formData.append('auth', auth)
+        await axios.post('/getAdmin', formData)
+        .then((res) => {
+            if(res.data === 1){
+                dispatch({type: 'API_DATA', payload: JSON.parse(data)})
+            }else{
+                logout()
+            }
+        })
+        .catch((error) => {
+            logout()
+        })
+    }
 
     const getUser = () => {
-        dispatch({type: 'INITIAL_STATE'})
-        let data = localStorage.getItem('admin')
+        // dispatch({type: 'INITIAL_STATE'})
 
         if(data){
-            dispatch({type: 'API_DATA', payload: JSON.parse(data)})
+            let authFound = JSON.parse(data)
+            if(authFound[0].auth){
+                getAdmin(authFound[0].auth)
+            }else{
+                logout()
+            }
         }else{
             dispatch({type: 'NO_USER_FOUND'})
         }
@@ -46,7 +68,7 @@ const AdminProvider = ( {children} ) => {
             }
         })
         .catch((error) => {
-
+            console.log(error.message)
         })
     }
 
@@ -66,10 +88,12 @@ const AdminProvider = ( {children} ) => {
 
     useEffect(() => {
         getUser()
+        // eslint-disable-next-line
     }, [])
 
+
     return(
-        <AdminContext.Provider value={{...state, login, logout, responsiveMenu, menuOpen, removeSidebar}}>
+        <AdminContext.Provider value={{...state, login, getAdmin, logout, responsiveMenu, menuOpen, removeSidebar}}>
             {children}
         </AdminContext.Provider>
     )

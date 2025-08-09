@@ -21,6 +21,7 @@ import profile from '../../assets/images/formal.jpg'
 import { useContactContext } from '../../context/ContactContext';
 import { useServiceContext } from '../../context/ServiceContext';
 import { useAdminContext } from '../../context/AdminContext';
+import { useSubscriberContext } from '../../context/SubscriberContext';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -68,6 +69,7 @@ export default function PrimarySearchAppBar() {
 
     const { unseen } = useContactContext()
     const { unseenService } = useServiceContext()
+    const { unseenSubscriber } = useSubscriberContext()
     const { logout, responsiveMenu } = useAdminContext()
 
     const open = Boolean(anchorEl);
@@ -149,7 +151,7 @@ export default function PrimarySearchAppBar() {
                     aria-label="show 17 new notifications"
                     color="inherit"
                 >
-                    <Badge badgeContent={unseen} color="error">
+                    <Badge badgeContent={5} color="error">
                         <NotificationsIcon />
                     </Badge>
                 </IconButton>
@@ -213,7 +215,7 @@ export default function PrimarySearchAppBar() {
                             aria-label="show 17 new notifications"
                             color="inherit"
                         >
-                            <Badge badgeContent={unseen} color="error">
+                            <Badge badgeContent={unseenService + unseen + unseenSubscriber} color="error">
                                 <NotificationsIcon />
                             </Badge>
                         </IconButton>

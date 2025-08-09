@@ -4,6 +4,7 @@ import { usePortfolioContext } from '../../context/PortfolioContext'
 import { Link } from 'react-router-dom'
 import BigText from '../../components/frontend/BigText'
 import HireMeAdd from '../../components/frontend/HireMeAdd'
+import CustomMetaTags from '../../layouts/frontend/CustomMetaTags'
 
 const ProjectsPage = () => {
     const { categories, setFilteredCategory, single_category } = useCategoryContext()
@@ -11,6 +12,7 @@ const ProjectsPage = () => {
 
     return (
         <div className='container min-height'>
+            <CustomMetaTags title="Projects  | Arafat Rony" />
             <HireMeAdd />
 
             <BigText big='PORTFOLIO' normal='RESENT' colored='WORKS' />

@@ -6,6 +6,7 @@ import PortfolioRight from '../../components/frontend/PortfolioRight'
 import { useSearchParams } from 'react-router-dom'
 import { usePortfolioContext } from '../../context/PortfolioContext'
 import FullPortfolio from '../../components/frontend/FullPortfolio'
+import CustomMetaTags from '../../layouts/frontend/CustomMetaTags'
 
 const ProjectPage = () => {
     const [id, setId] = useSearchParams()
@@ -21,6 +22,7 @@ const ProjectPage = () => {
 
     return (
         <div className='container-fluid'>
+            <CustomMetaTags title={singlePortfolio && singlePortfolio.name} />
             <div className="container">
                 <HireMeAdd />
 

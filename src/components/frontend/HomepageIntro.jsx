@@ -20,7 +20,12 @@ const HomepageIntro = () => {
                     <img src={logo} alt="" />
                 </div>
                 <p>
-                    I'm <strong>Arafat Rony,</strong> a tech enthusiast with expertise in a range of front-end and back-end technologies. I have experience designing, developing, and maintaining small and enterprise-level applications using various development tools and languages to meet the unique project requirements. I have worked on a variety of projects, including web banking, social projects, multivendor e-commerce, LMS, affiliate blogs, startups, SAAS solutions, and web apps. I'm here to empower each other to create a better future whether you're searching for long-term sustainability, performance, security, or influence.
+                    {/* I'm <strong>Arafat Rony,</strong> a tech enthusiast with expertise in a range of front-end and back-end technologies. I have experience designing, developing, and maintaining small and enterprise-level applications using various development tools and languages to meet the unique project requirements. I have worked on a variety of projects, including web banking, social projects, multivendor e-commerce, LMS, affiliate blogs, startups, SAAS solutions, and web apps. I'm here to empower each other to create a better future whether you're searching for long-term sustainability, performance, security, or influence. */}
+                    Hi, I’m <strong>Arafat Rony,</strong> — a full-time banker and a passionate part-time full-stack web developer. While I spend my days navigating the world of finance, I dedicate my off-hours to exploring my long-time hobby: building powerful, user-centric digital experiences.
+
+                    With expertise in both front-end and back-end technologies, I design, develop, and maintain everything from small tools to enterprise-level applications. My work spans a wide range of industries and platforms, including web banking systems, social projects, multivendor e-commerce, LMS platforms, affiliate blogs, startups, SaaS solutions, and web apps.
+
+                    Whether you're focused on long-term sustainability, performance, security, or impact, I’m here to collaborate and empower innovation—one line of code at a time.
                 </p>
             </div>
         </div>

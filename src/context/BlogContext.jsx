@@ -50,7 +50,7 @@ const BlogProvider = ( {children} ) => {
         formData.append('name', name)
         formData.append('email', email)
         formData.append('comment', comment)
-        formData.append('author', authentication ? true : false)
+        formData.append('author', authentication ? 1 : 0)
 
         axios.post('/addComment', formData)
         .then((res) => {
@@ -71,7 +71,7 @@ const BlogProvider = ( {children} ) => {
         formData.append('name', name)
         formData.append('email', email)
         formData.append('reply', reply)
-        formData.append('author', authentication ? true : false)
+        formData.append('author', authentication ? 1 : 0)
 
         axios.post('/addReply', formData)
         .then((res) => {

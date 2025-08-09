@@ -10,6 +10,7 @@ import SubscriberSection from '../../components/frontend/SubscriberSection'
 import ContactSection from '../../components/frontend/ContactSection'
 import { useParams } from 'react-router-dom'
 import { useBlogContext } from '../../context/BlogContext'
+import CustomMetaTags from '../../layouts/frontend/CustomMetaTags'
 
 const BlogPage = () => {
 
@@ -24,26 +25,29 @@ const BlogPage = () => {
 
 
     return (
-        <div className='container-fluid'>
-            <div className="container">
-                <HireMeAdd />
+        <>
+            <CustomMetaTags title={singleBlog && singleBlog.title} description={singleBlog && singleBlog.meta_description} image={singleBlog && singleBlog.image} link={`https://${window.location.origin}/#/blog/${singleBlog && singleBlog.slug}`} />
+            <div className='container-fluid'>
+                <div className="container">
+                    <HireMeAdd />
 
-                <div className="row">
-                    <div className="col-12 col-md-8">
-                        <FullBlog blog={singleBlog} />
-                        <Share />
-                        <BlogArrow />
-                        { singleBlog && <BlogComments />}
-                    </div>
-                    <div className="col-12 col-md-4">
-                        <BlogRight />
+                    <div className="row">
+                        <div className="col-12 col-md-8">
+                            <FullBlog blog={singleBlog} />
+                            <Share />
+                            <BlogArrow />
+                            { singleBlog && <BlogComments />}
+                        </div>
+                        <div className="col-12 col-md-4">
+                            <BlogRight />
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <SubscriberSection />
-            <ContactSection />
-        </div>
+                <SubscriberSection />
+                <ContactSection />
+            </div>
+        </>
     )
 }
 

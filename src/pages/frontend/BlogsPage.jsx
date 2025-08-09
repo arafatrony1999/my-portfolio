@@ -5,6 +5,7 @@ import { useCategoryContext } from '../../context/CategoryContext'
 import { Link } from 'react-router-dom'
 import { useBlogContext } from '../../context/BlogContext'
 import DateFormat from '../../helper/DateFormat'
+import CustomMetaTags from '../../layouts/frontend/CustomMetaTags'
 
 const BlogsPage = () => {
     const { categories, setFilteredCategoryBlog, single_category_blog } = useCategoryContext()
@@ -12,6 +13,7 @@ const BlogsPage = () => {
 
     return (
         <div className='container'>
+            <CustomMetaTags title="Blogs | Arafat Rony" />
             <HireMeAdd />
 
             <BigText big='ARTICLES' normal='NEW BLOGS &' colored='INSIGHTS' />

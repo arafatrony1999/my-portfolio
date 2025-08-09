@@ -36,7 +36,7 @@ body{
     color: white;
     top: 50%;
     transform: translateY(-50%);
-    margin-left: auto;
+    /* margin-left: auto; */
 }
 .cross-btn-container{
     height: 100px;
@@ -113,6 +113,7 @@ body{
 
 @media (max-width: 991px) {
     .front-header{
+        display: flex;
         padding: 0 20px;
         height: 75px;
         /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */

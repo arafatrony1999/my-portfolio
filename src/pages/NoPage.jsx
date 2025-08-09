@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom'
 import './nopage.css'
+import CustomMetaTags from '../layouts/frontend/CustomMetaTags'
 
 const NoPage = () => {
     return (
         <div class="no-page-container">
+            <CustomMetaTags title="404 Error" />
             <div class="gif">
                 <img src="https://i.postimg.cc/2yrFyxKv/giphy.gif" alt="gif_ing" />
             </div>

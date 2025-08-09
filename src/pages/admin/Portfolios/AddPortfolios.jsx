@@ -138,7 +138,8 @@ const AddPortfolios = () => {
                     <Select
                         value={category}
                         onChange={setSelectedCategory}
-                        options={categories}
+                        // options={categories}
+                        options={categories.filter((category) => {return category.type === 'website'})}
                         getOptionLabel={(options) => options.name}
                         getOptionValue={(options) => options.id}
                         isSearchable

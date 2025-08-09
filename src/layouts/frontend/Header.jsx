@@ -15,8 +15,8 @@ const Header = () => {
     return (
         <>
             <div className='front-header'>
-                <img className="img-fluid py-3 rounded-circle responsive-logo" src={formal} alt="" />
-                <img className='img-fluid main-logo' src={logo} alt="" />
+                <img className="py-3 rounded-circle responsive-logo" src={formal} alt="" />
+                <img className='main-logo' src={logo} alt="" />
 
                 <div className="menu-bar-icon" onClick={handleClick}>
                     <FaBars />

@@ -129,7 +129,8 @@ const AddBlogs = () => {
                     <Select
                         value={category}
                         onChange={setSelectedCategory}
-                        options={categories}
+                        // options={categories}
+                        options={categories.filter((category) => {return category.type === 'blog'})}
                         getOptionLabel={(options) => options.name}
                         getOptionValue={(options) => options.id}
                         isSearchable
