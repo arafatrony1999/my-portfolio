@@ -11,7 +11,7 @@ export default function CustomMetaTags(props) {
                     <meta property="og:description" content={props.description} />
                     <meta property="og:image" content={props.image} />
                     <meta property="og:url" content={props.link} />
-                    <meta property="og:type" content="article" />
+                    <meta property="og:type" content="profile" />
 
                     <meta name="twitter:card" content={props.image} />
                     <meta name="twitter:title" content={props.title} />

@@ -1,22 +1,53 @@
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useBlogContext } from "../../context/BlogContext";
+import { useState, useEffect } from "react";
 
-const BlogArrow = () => {
+const BlogArrow = (props) => {
+    const { blogs } = useBlogContext()
+
+    const [previous, setPrevious] = useState(null);
+    const [next, setNext] = useState(null);
+
+    useEffect(() => {
+        if(blogs){
+            if(props.currentBlog){
+                const currentIndex = blogs.findIndex(item => item.id === props.currentBlog.id);
+
+                if (currentIndex > -1) {
+                    setPrevious(blogs[currentIndex - 1]);
+                }else{
+                    setPrevious(null)
+                }
+
+                if (currentIndex < blogs.length - 1) {
+                    setNext(blogs[currentIndex + 1]);
+                }else{
+                    setNext(null)
+                }
+            }else{
+                console.log('no props')
+            }
+        }else{
+            console.log('no blogs')
+        }
+    }, [props.currentBlog, blogs]);
+
     return (
-        <div className='d-flex justify-content-between align-items-center py-3'>
-            <Link to='/' className="d-flex blog-arrow">
+        <div className="d-flex justify-content-between align-items-center py-3">
+            <Link to={`/blog/${previous && previous.slug}`} className={`d-flex blog-arrow ${previous ? '' : 'd-none'}`}>
                 <div className="arrow-icon">
                     <FaArrowLeft />
                 </div>
                 <div className="px-2">
                     <p className="py-0 my-0">Previous</p>
-                    <span>Lorem ipsum dolor sit amet consectetur adipisicing el</span>
+                    <span>{previous ? previous.title : "None"}</span>
                 </div>
             </Link>
-            <Link to='' className="d-flex blog-arrow">
+            <Link to={`/blog/${next && next.slug}`} className={`d-flex blog-arrow ${next ? '' : 'd-none'}`}>
                 <div className="px-2">
                     <p className="py-0 my-0">Next</p>
-                    <span>Lorem ipsum dolor sit amet consectetur adipisicing el</span>
+                    <span>{next ? next.title : "None"}</span>
                 </div>
                 <div className="arrow-icon">
                     <FaArrowRight />

@@ -16,7 +16,7 @@ const PricingSection = () => {
                         pricing.map((price, index) => {
                             return(
                                 <div key={index} className="service-card pricing-card">
-                                    <img width={50} height={100} className='py-3' src={price.icon} alt=''/>
+                                    <img className='py-3' src={price.icon} alt=''/>
                                     <h6>For {price.title}</h6>
                                     <div dangerouslySetInnerHTML={{__html: price.description}} />
                                     {

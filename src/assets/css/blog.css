@@ -57,3 +57,16 @@
     padding: 15px;
     color: white;
 }
+
+
+@media (max-width: 991px){
+    .blog-details{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+    }
+    .blog-details .author{
+        width: 100%;
+        margin: 10px 0;
+    }
+}

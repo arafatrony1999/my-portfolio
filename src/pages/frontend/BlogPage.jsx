@@ -35,7 +35,7 @@ const BlogPage = () => {
                         <div className="col-12 col-md-8">
                             <FullBlog blog={singleBlog} />
                             <Share />
-                            <BlogArrow />
+                            <BlogArrow currentBlog={singleBlog} />
                             { singleBlog && <BlogComments />}
                         </div>
                         <div className="col-12 col-md-4">

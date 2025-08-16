@@ -18,10 +18,12 @@ import TestimonialSection from '../../components/frontend/TestimonialSection'
 import BlogsSection from '../../components/frontend/BlogsSection'
 import SubscriberSection from '../../components/frontend/SubscriberSection'
 import ContactSection from '../../components/frontend/ContactSection'
+// import CustomMetaTags from '../../layouts/frontend/CustomMetaTags'
 
 const HomePage = () => {
     return (
         <div className='homepage'>
+            {/* <CustomMetaTags title="Home | Arafat Rony" link="https://arafatrony.com/"  image="https://arafatrony.com/static/media/formal.c93d0f750540aeca86bb.jpg" description="Hi, I’m Arafat Rony, — a full-time banker and a passionate part-time full-stack web developer. While I spend my days navigating the world of finance, I dedicate my off-hours to exploring my long-time hobby: building powerful, user-centric digital experiences. With expertise in both front-end and back-end technologies" />  */}
             <PageTitle />
             <HomepageIntro />
             <IntroCarousel />

@@ -6,7 +6,7 @@ import DateFormat from '../../helper/DateFormat'
 
 const FullBlog = (props) => {
     if(props.blog){
-        const encodedURL = encodeURIComponent(`https://${window.location.origin}/#/blog/${props.blog.slug}`);
+        const encodedURL = encodeURIComponent(`${window.location.origin}/#/blog/${props.blog.slug}`);
         const encodedTitle = encodeURIComponent(props.blog.title);
 
         const twitterShareUrl = `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedURL}`;
